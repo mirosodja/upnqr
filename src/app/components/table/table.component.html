@@ -1,0 +1,19 @@
+<h2>Seznam za naloge</h2>
+<p-table [value]="bankas">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Year</th>
+            <th>Brand</th>
+            <th>Color</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-banka>
+        <tr>
+            <td>{{banka.idBank}}</td>
+            <td>{{banka.nazivBank}}</td>
+            <td>{{banka.naslovBank}}</td>
+            <td>{{banka.bicKoda}}</td>
+        </tr>
+    </ng-template>
+</p-table>
