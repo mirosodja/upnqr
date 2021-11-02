@@ -1,19 +1,64 @@
 <h2>Seznam za naloge</h2>
-<p-table [value]="bankas">
-    <ng-template pTemplate="header">
+<p-table [value]="bankas" [columns]="cols">
+    <ng-template pTemplate="caption">
+        <div class="grid">
+            <div class="col-6">
+                <button pButton pRipple label="Re-init" icon="pi pi-refresh"
+                    pTooltip="Re-init tabele" tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Dodaj" icon="pi pi-plust" pTooltip="Dodaj zapis"
+                    tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Izbriši" icon="pi pi-mminus" pTooltip="Izbriši zapis"
+                    tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Izbor" icon="pi pi-clone"
+                    pTooltip="Dodaj filtrirane vrstice v izbor" tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Preobrni" icon="pi pi-replay"
+                    pTooltip="Preobrni izbor" tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Izvozi" icon="pi pi-download"
+                    pTooltip="Izvozi podatke v CSV datoteko" tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Upnqr" icon="pi pi-book" pTooltip="Pripravi Upnqr"
+                    tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Help" icon="pi pi-question" pTooltip="Pomoč"
+                    tooltipPosition="bottom"></button>
+            </div>
+            <div class="col-1">&nbsp;</div>
+            <div class="col-2" style="border:solid;height:60px">
+                Izberi tole za vstavljanje podatkov, potem pb Ctrl+V
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2"><i class="pi pi-times" pTooltip="Počisti filter"
+                    tooltipPosition="bottom"></i><input type="text"
+                    placeholder="Filter Plačnik&Skupin"></div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
         <tr>
-            <th>Id</th>
-            <th>Year</th>
-            <th>Brand</th>
-            <th>Color</th>
+            <th style="width: 3em">
+                <p-tableHeaderCheckbox pTooltip="Izberi vse filtrirane" tooltipPosition="bottom">
+                </p-tableHeaderCheckbox>
+            </th>
+            <th style="width: 5em">Zap.št.</th>
+            <th *ngFor="let col of columns">
+                {{ col.header }}
+                <p-sortIcon [field]="col.field" [pSortableColumn]="col.field" pTooltip="Sortiraj"
+                    tooltipPosition="bottom"></p-sortIcon>
+                <i class="pi pi-pencil" pTooltip="Uredi" tooltipPosition="bottom"></i>
+            </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-banka>
         <tr>
+            <td>
+                <p-tableCheckbox></p-tableCheckbox>
+            </td>
             <td>{{banka.idBank}}</td>
             <td>{{banka.nazivBank}}</td>
             <td>{{banka.naslovBank}}</td>
             <td>{{banka.bicKoda}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </ng-template>
 </p-table>
