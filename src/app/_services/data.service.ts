@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Banka } from '../_models/banka';
+import { Kodanamena } from '../_models/kodanamena';
 
 
 @Injectable({
@@ -36,11 +36,9 @@ export class DataService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  getBanka(): Observable<Banka[]> {
+  getKodaNamena(): Observable<Kodanamena[]> {
     return this.http
-      .get<Banka[]>('./assets/data/bankCode.json')
+      .get<Kodanamena[]>('./assets/data/codeDefinition.json')
       .pipe(catchError(this.handleError));
   }
-
-
 }

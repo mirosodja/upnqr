@@ -1,0 +1,9 @@
+/* a, a:visited {
+    color: inherit;
+} */
+
+a:link, :visited {
+    color: rgb(85, 26, 139);
+    background-color: transparent;
+    text-decoration: none;
+}

@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StorageMap } from '@ngx-pwa/local-storage';
-import { Banka } from 'src/app/_models/banka';
 import { Oseba } from 'src/app/_models/oseba';
 import { DataService } from 'src/app/_services/data.service';
-import { MessageService, PrimeNGConfig } from 'primeng/api';
+import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
 import * as _ from 'lodash';
 import { Table } from 'primeng/table';
 
@@ -15,10 +14,10 @@ import { Table } from 'primeng/table';
 })
 export class TableComponent implements OnInit {
 
-  bankas: Banka[] = []
   cols: { field: string; header: string; }[] = [];
   osebas: Oseba[] = [];
   oseba: Oseba | undefined;
+  kodasNamen!: SelectItem[];
   // ! za CRUD
   displayDialogEdit: boolean = false; // prikaže menu za urejanje
   displayEditableField = 'all'; // kateri polja prikažem za urejanje
@@ -62,6 +61,23 @@ export class TableComponent implements OnInit {
       { field: 'prejemnik_referenca', header: 'Referenca' },
       { field: 'imePrejemnik', header: 'Prejemnik' },
     ];
+
+    //! gumb options
+    this.dataService.getKodaNamena().subscribe((data) => {
+      this.kodasNamen = _.map(data, (item) =>
+        _.assign({ label: item.Koda, value: item.Koda })
+      );
+      this.kodasNamen.splice(0, 0, { label: '', value: '' });
+    });
+  }
+
+  ngAfterContentInit() {
+    if (!localStorage.getItem('AlreadyHere')) {
+      setTimeout(() => {
+        this.showCookiesInfo();
+      }, 200);
+      localStorage.setItem('AlreadyHere', 'Yes!');
+    }
   }
 
   //! paste from Clipboard
@@ -129,6 +145,14 @@ export class TableComponent implements OnInit {
     this.displayDialogEdit = false;
   }
 
+  // ! Add row - button Dodaj
+  showDialogToAdd() {
+    this.displayEditableField = 'all';
+    this.newOseba = true;
+    this.oseba = { $id: '', imePlacnik: '' };
+    this.displayDialogEdit = true;
+  }
+
   //! delete osebas
   deleteSelectedOsebas(): void {
     this.selectedOsebas.forEach((oseba) => {
@@ -179,7 +203,6 @@ export class TableComponent implements OnInit {
   resetFilter() {
     this.dt22 = '';
     this.table!.reset();
-    // this.table.reset();
   }
 
   // resetTable
@@ -228,4 +251,98 @@ export class TableComponent implements OnInit {
   //! go to page callUpnQr
   callUpnQr() {
   }
+
+  //! show cookie info
+  showCookiesInfo() {
+    this.messageService.add({
+      key: 'custom',
+      severity: 'info',
+      summary: 'O piškotkih',
+      detail:
+        'Analitičnih piškotkov ne uporabljamo. V brskalnik zabeležimo prvi obisk.<br /><br />Uporabljamo IndexedDB, zato so vsi podatki na vašem računalniku.<br /><br />Več si preberite v <a href="./help"><b>Help</b></a>',
+      closable: true,
+      life: 20000,
+    });
+  }
+
+  //! v inputu spremeni digitalni zapis z vejico v digitalni zapis s piko
+  numberInputChanged(value: string) {
+    const num = value.replace('.', '').replace(',', '.');
+    // let num = num1.replace(',', '.');
+    return Number(num);
+  }
+
+  prepare4save(): void {
+
+  }
+
+  save(oseba?: Oseba): void {
+    const osebas = [...this.osebas];
+    if (oseba) {
+      this.oseba = oseba;
+    }
+    if (this.oseba!.prejemnik_referenca) {
+      if (this.oseba!.prejemnik_referenca.startsWith('SI12')) {
+        this.oseba!.prejemnik_referenca = this.calcControlNumber11(
+          this.oseba!.prejemnik_referenca
+        );
+      }
+    }
+    // insert record
+    if (this.newOseba) {
+      osebas.splice(0, 0, this.oseba!);
+      this.storageMap
+        .set(this.oseba!.imePlacnik, this.oseba)
+        .subscribe(() => {});
+      // udpate record
+    } else {
+      osebas[this.osebas.indexOf(this.selectedOseba!)] = this.oseba!;
+      this.storageMap
+        .set(this.oseba!.imePlacnik, this.oseba)
+        .subscribe(() => {});
+    }
+
+    this.osebas = osebas;
+    this.selectedOseba = undefined;
+    this.oseba = undefined;
+  }
+  // izracun kontrolne številke po modulu 11
+  calcControlNumber11(referenca: string) {
+    let i = 0;
+    let sestevek = 0;
+    let ponder = 2;
+    let stevka = 0;
+    let s: string;
+    if (referenca.length <= 12) {
+      s = referenca.substring(5, referenca.length);
+    } else {
+      s = referenca.substring(5, 17);
+    }
+    let controlSum = null;
+    for (i = s.length; i >= 1; i--) {
+      stevka = Number(s.substr(i - 1, 1));
+      if (0 <= stevka && stevka <= 9 && sestevek >= 0) {
+        sestevek = sestevek + ponder * stevka;
+        ponder = ponder + 1;
+      }
+    }
+    controlSum = 11 - (sestevek % 11);
+
+    if (controlSum === 11) {
+      controlSum = 0;
+    }
+
+    if (controlSum === 10) {
+      controlSum = 0;
+    }
+    referenca = 'SI12 ' + this.insertZeros(s) + controlSum.toString();
+    return referenca;
+  }
+
+  // vstavi nule, default size=12
+  insertZeros(input: string, size?: number) {
+    const zero = (size ? size : 12) - input.toString().length + 1;
+    return Array(+(zero > 0 && zero)).join('0') + input;
+  }
+
 }

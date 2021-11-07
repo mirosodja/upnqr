@@ -14,7 +14,7 @@
                     pTooltip="Re-init tabele" tooltipPosition="bottom"
                     (click)="resetTable()"></button>
                 <button pButton pRipple label="Dodaj" icon="pi pi-plust" pTooltip="Dodaj zapis"
-                    tooltipPosition="bottom"></button>
+                    tooltipPosition="bottom" (click)="showDialogToAdd()"></button>
                 <button pButton pRipple label="Izbriši" icon="pi pi-mminus" pTooltip="Izbriši zapis"
                     tooltipPosition="bottom" (click)="showConfirm()"
                     [disabled]="!selectedOsebas?.length"></button>
@@ -22,11 +22,14 @@
                     pTooltip="Dodaj filtrirane vrstice v izbor" tooltipPosition="bottom"
                     (click)="add2selectedOsebas()" [disabled]="!dt.filteredValue"></button>
                 <button pButton pRipple label="Preobrni" icon="pi pi-replay"
-                    pTooltip="Preobrni izbor" tooltipPosition="bottom" (click)="invertSelectedOsebas()"></button>
+                    pTooltip="Preobrni izbor" tooltipPosition="bottom"
+                    (click)="invertSelectedOsebas()"></button>
                 <button pButton pRipple label="Izvozi" icon="pi pi-download"
-                    pTooltip="Izvozi podatke v CSV datoteko" tooltipPosition="bottom"></button>
+                    (click)="dt.exportCSV({ selectionOnly: true })"
+                    [disabled]="!selectedOsebas?.length"></button>
                 <button pButton pRipple label="Upnqr" icon="pi pi-book" pTooltip="Pripravi Upnqr"
-                    tooltipPosition="bottom" [disabled]="!selectedOsebas?.length" [routerLink]="['/upnqr']"></button>
+                    tooltipPosition="bottom" [disabled]="!selectedOsebas?.length"
+                    [routerLink]="['/upnqr']"></button>
                 <button pButton pRipple label="Help" icon="pi pi-question" pTooltip="Pomoč"
                     tooltipPosition="bottom" [routerLink]="['/help']"></button>
             </div>
@@ -84,10 +87,18 @@
 </p-table>
 
 
-<!-- message -->
+<!-- message for importing from clipboard-->
 <p-toast position="top-center" key="tc"></p-toast>
+<!-- message for cookies -->
+<p-toast [style]="{ marginTop: '80px' }" styleClass="custom-toast" key="custom"
+    position="top-center">
+    <ng-template let-message pTemplate="message">
+        <p innerHtml="{{ message.detail }}"></p>
+    </ng-template>
+    >
+</p-toast>
 
-<!-- dialog for delete -->
+<!-- confirm message for delete -->
 <p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
     <ng-template let-message pTemplate="message">
         <div class="p-flex p-flex-column" style="flex: 1">
@@ -109,3 +120,187 @@
         </div>
     </ng-template>
 </p-toast>
+
+<!-- dialog for Add, Edit, Delete row -->
+<p-dialog header="Podrobnosti o članu" [(visible)]="displayDialogEdit" showEffect="fade"
+    [modal]="true" [style]="{ height: '80em', width: '50em' }">
+    <form #upnForm="ngForm">
+        <div class="ui-g ui-fluid" *ngIf="oseba">
+            <!-- imePlacnik -->
+            <div *ngIf="displayEditableField === 'all'" class="ui-g-12">
+                <div>
+                    <div class="ui-g-2"><label for="imePlacnik">Plačnik</label></div>
+                    <div class="ui-g-10">
+                        <input required pattern="[^,;]{1,32},[^,;]{1,32},[^,;]{1,32}" pInputText
+                            placeholder="Zapis v obliki 'Ime Priimek, Ulica Številka, Številka Pošta', max. 32 znakov/polje!"
+                            [(ngModel)]="oseba.imePlacnik" name="imePlacnik"
+                            #imePlacnik="ngModel" />
+                    </div>
+                </div>
+                <div class="ui-g-12"
+                    *ngIf="imePlacnik.invalid && (imePlacnik.dirty || imePlacnik.touched)">
+                    <p-message *ngIf="imePlacnik.errors!.required" severity="warn"
+                        text="Polje je potrebno izpolniti!"></p-message>
+                    <p-message *ngIf="imePlacnik.errors!.pattern" severity="warn"
+                        text="Podatke loči z vejicami, zapis v obliki 'Ime Priimek, Ulica Številka, Številka Pošta', max. 32 znakov/polje!">
+                    </p-message>
+                </div>
+            </div>
+            <!-- !END imePlacnik -->
+            <!-- placnik_skupina -->
+            <div *ngIf="
+          displayEditableField === 'all' ||
+          displayEditableField === 'placnik_skupina'
+        " class="ui-g-12">
+                <div class="ui-g-12">
+                    <div class="ui-g-2"><label for="placnik_skupina">Skupina</label></div>
+                    <div class="ui-g-10">
+                        <input pInputText maxlength="20" placeholder="Največ 20 znakov"
+                            [(ngModel)]="oseba.placnik_skupina" #placnik_skupina="ngModel"
+                            name="placnik_skupina" />
+                    </div>
+                </div>
+            </div>
+            <!-- !END placnik_skupina -->
+            <!-- znesek -->
+            <div *ngIf="
+          displayEditableField === 'all' || displayEditableField === 'znesek'
+        " class="ui-g-12">
+                <div class="ui-g-12">
+                    <div class="ui-g-2"><label for="znesek">Znesek</label></div>
+                    <div class="ui-g-10">
+                        <input pInputText maxlength="10" placeholder="Znesek v obliki ###.###,##"
+                            pattern="^(\d{0,3}\.)?\d{1,3},\d{2}$"
+                            [ngModelOptions]="{ updateOn: 'blur' }"
+                            (ngModelChange)="oseba.znesek = numberInputChanged($event)"
+                            [ngModel]="oseba.znesek | number: '1.2-2':'sl'" #znesek="ngModel"
+                            name="znesek" />
+                    </div>
+                </div>
+                <div class="ui-g-12" *ngIf="znesek.invalid && (znesek.dirty || znesek.touched)">
+                    <p-message *ngIf="znesek.errors!.maxlength" severity="warn"
+                        text="Največ 999.999,99"></p-message>
+                    <p-message *ngIf="znesek.errors!.pattern" severity="warn"
+                        text="Znesek v obliki ###.###,##"></p-message>
+                </div>
+            </div>
+            <!-- !END znesek -->
+            <!-- koda_namena -->
+            <div *ngIf="
+          displayEditableField === 'all' ||
+          displayEditableField === 'koda_namena'
+        " class="ui-g-12">
+                <div class="ui-g-12">
+                    <div class="ui-g-2"><label for="koda_namena">Koda namena</label></div>
+                    <div class="ui-g-10">
+                        <p-dropdown [options]="kodasNamen" [(ngModel)]="oseba.koda_namena"
+                            placeholder="Izberi kodo namena" #koda_namen="ngModel"
+                            name="koda_namena"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+            <!-- !END koda_namena -->
+            <!-- namen_rok_placila -->
+            <div *ngIf="
+          displayEditableField === 'all' ||
+          displayEditableField === 'namen_rok_placila'
+        " class="ui-g-12">
+                <div class="ui-g-12">
+                    <div class="ui-g-2">
+                        <label for="namen_rok_placila">Namen in rok plačila</label>
+                    </div>
+                    <div class="ui-g-10">
+                        <input pInputText maxlength="42" placeholder="Največ 42 znakov"
+                            [(ngModel)]="oseba.namen_rok_placila" #namen_rok_placila="ngModel"
+                            name="namen_rok_placila" />
+                    </div>
+                </div>
+            </div>
+            <!-- !END namen_rok_placila -->
+            <div *ngIf="
+          displayEditableField === 'all' ||
+          displayEditableField === 'prejemnik_IBAN'
+        " class="ui-g-12">
+                <div class="ui-g-12">
+                    <div class="ui-g-2"><label for="prejemnik_IBAN">TRR</label></div>
+                    <div class="ui-g-10">
+                        <input pInputText [(ngModel)]="oseba.prejemnik_IBAN"
+                            pattern="^[A-Z]{2}\d{2}\s\d{4}\s\d{4}\s\d{4}\s\d{3}$"
+                            #prejemnik_IBAN="ngModel" name="prejemnik_IBAN"
+                            placeholder="TRR v obliki SI## #### #### #### ###" />
+                    </div>
+                </div>
+                <div class="ui-g-12" *ngIf="
+            prejemnik_IBAN.invalid &&
+            (prejemnik_IBAN.dirty || prejemnik_IBAN.touched)
+          ">
+                    <p-message *ngIf="prejemnik_IBAN.errors!.pattern" severity="warn"
+                        text="TRR v obliki SI## #### #### #### ###."></p-message>
+                </div>
+            </div>
+            <!-- !END prejemnik_IBAN -->
+            <!-- prejemnik_referenca -->
+            <div *ngIf="
+          displayEditableField === 'all' ||
+          displayEditableField === 'prejemnik_referenca'
+        " class="ui-g-12">
+                <div class="ui-g-12">
+                    <div class="ui-g-2">
+                        <label for="prejemnik_referenca">Referenca</label>
+                    </div>
+                    <div class="ui-g-10">
+                        <input pInputText minlength="8" maxlength="25"
+                            pattern="^((SI|RF)\d{2}\s)((\d{1,6}-\d{1,6}-\d{1,6})|(\d{1,9}-\d{1,9})|(\d{1,13}))$"
+                            [(ngModel)]="oseba.prejemnik_referenca" name="prejemnik_referenca"
+                            #prejemnik_referenca="ngModel"
+                            placeholder="Oblika SI/RF## in številčni znaki z vezaji. SI12 dolžina max. 17 zankov." />
+                    </div>
+                </div>
+                <div class="ui-g-12" *ngIf="
+            prejemnik_referenca.invalid &&
+            (prejemnik_referenca.dirty || prejemnik_referenca.touched)
+          ">
+                    <p-message *ngIf="prejemnik_referenca.errors!.minlength" severity="warn"
+                        text="Vsaj 8 znakov!"></p-message>
+                    <p-message *ngIf="prejemnik_referenca.errors!.pattern" severity="warn"
+                        text="Oblika SI/RF## in številčni znaki z vezaji. SI12 dolžina max. 17 zankov.">
+                    </p-message>
+                    <p-message *ngIf="prejemnik_referenca.errors!.maxlength" severity="warn"
+                        text="Največ 25 znakov!"></p-message>
+                </div>
+            </div>
+            <!-- !END prejemnik_referenca -->
+            <!--  imePrejemnik-->
+            <div *ngIf="
+          displayEditableField === 'all' ||
+          displayEditableField === 'imePrejemnik'
+        " class="ui-g-12">
+                <div class="ui-g-12">
+                    <div class="ui-g-2"><label for="imePrejemnik">Prejemnik</label></div>
+                    <div class="ui-g-10">
+                        <input pInputText pattern="[^,;]{1,32},[^,;]{1,32},[^,;]{1,32}"
+                            [(ngModel)]="oseba.imePrejemnik" #imePrejemnik="ngModel"
+                            name="imePrejemnik"
+                            placeholder="Zapis v obliki 'Ime Priimek, Ulica Številka, Številka Pošta', max. 32 znakov/polje!" />
+                    </div>
+                </div>
+                <div class="ui-g-12" *ngIf="
+            imePrejemnik.invalid && (imePrejemnik.dirty || imePrejemnik.touched)
+          ">
+                    <p-message *ngIf="imePrejemnik.errors!.pattern" severity="warn"
+                        text="Podatke loči z vejicami, zapis v obliki 'Ime Priimek, Ulica Številka, Številka Pošta', max. 32 znakov/polje!">
+                    </p-message>
+                </div>
+            </div>
+            <!-- !END imePrejemnik -->
+        </div>
+    </form>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button class="ui-button-warning" type="button" pButton icon="pi pi-close"
+                (click)="delete()" label="Delete" [disabled]="newOseba"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="prepare4save()" label="Save"
+                [disabled]="upnForm.invalid"></button>
+        </div>
+    </p-footer>
+</p-dialog>

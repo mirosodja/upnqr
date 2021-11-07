@@ -12,19 +12,25 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { DropdownModule } from 'primeng/dropdown';
 // end primneng
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HelpComponent } from './components/help/help.component';
 
 registerLocaleData(localeSl, 'sl');
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,10 @@ registerLocaleData(localeSl, 'sl');
     RippleModule,
     TooltipModule,
     ToastModule,
+    DialogModule,
+    MessagesModule,
+    MessageModule,
+    DropdownModule,
     AppRoutingModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'sl' }],
