@@ -1,64 +1,111 @@
 <h2>Seznam za naloge</h2>
-<p-table [value]="bankas" [columns]="cols">
+<h4>
+    Selected: {{ selectedOsebas?.length }} / Filtered:
+    {{ dt.filteredValue?.length || 0 }} / Total: {{ osebas?.length }} records.
+</h4>
+<p-table #dt [columns]="cols" [value]="osebas" sortMode="multiple" [paginator]="false"
+    [rowsPerPageOptions]="[10, 20, 30, osebas?.length]"
+    [globalFilterFields]="['imePlacnik', 'placnik_skupina']" [(selection)]="selectedOsebas"
+    exportFilename="upn" dataKey="id" (onRowSelect)="onRowSelect()" (onRowUnselect)="onRowSelect()">
     <ng-template pTemplate="caption">
         <div class="grid">
             <div class="col-6">
                 <button pButton pRipple label="Re-init" icon="pi pi-refresh"
-                    pTooltip="Re-init tabele" tooltipPosition="bottom"></button>
+                    pTooltip="Re-init tabele" tooltipPosition="bottom"
+                    (click)="resetTable()"></button>
                 <button pButton pRipple label="Dodaj" icon="pi pi-plust" pTooltip="Dodaj zapis"
                     tooltipPosition="bottom"></button>
                 <button pButton pRipple label="Izbriši" icon="pi pi-mminus" pTooltip="Izbriši zapis"
-                    tooltipPosition="bottom"></button>
+                    tooltipPosition="bottom" (click)="showConfirm()"
+                    [disabled]="!selectedOsebas?.length"></button>
                 <button pButton pRipple label="Izbor" icon="pi pi-clone"
-                    pTooltip="Dodaj filtrirane vrstice v izbor" tooltipPosition="bottom"></button>
+                    pTooltip="Dodaj filtrirane vrstice v izbor" tooltipPosition="bottom"
+                    (click)="add2selectedOsebas()" [disabled]="!dt.filteredValue"></button>
                 <button pButton pRipple label="Preobrni" icon="pi pi-replay"
-                    pTooltip="Preobrni izbor" tooltipPosition="bottom"></button>
+                    pTooltip="Preobrni izbor" tooltipPosition="bottom" (click)="invertSelectedOsebas()"></button>
                 <button pButton pRipple label="Izvozi" icon="pi pi-download"
                     pTooltip="Izvozi podatke v CSV datoteko" tooltipPosition="bottom"></button>
                 <button pButton pRipple label="Upnqr" icon="pi pi-book" pTooltip="Pripravi Upnqr"
-                    tooltipPosition="bottom"></button>
+                    tooltipPosition="bottom" [disabled]="!selectedOsebas?.length" [routerLink]="['/upnqr']"></button>
                 <button pButton pRipple label="Help" icon="pi pi-question" pTooltip="Pomoč"
-                    tooltipPosition="bottom"></button>
+                    tooltipPosition="bottom" [routerLink]="['/help']"></button>
             </div>
             <div class="col-1">&nbsp;</div>
-            <div class="col-2" style="border:solid;height:60px">
-                Izberi tole za vstavljanje podatkov, potem pb Ctrl+V
+            <div class="col-2 pastediv" style="border:solid;" (paste)="data($event)" tabindex="-1">
+                Klikni tu za vstavljanje podatkov v tabelo, nato Ctrl+V
             </div>
             <div class="col-1"></div>
             <div class="col-2"><i class="pi pi-times" pTooltip="Počisti filter"
-                    tooltipPosition="bottom"></i><input type="text"
-                    placeholder="Filter Plačnik&Skupin"></div>
+                    (click)="resetFilter()"></i>
+                <input name="dt22" [(ngModel)]="dt22" type="text" pInputText size="30"
+                    placeholder="Global Filter on Plačnik&Skupina"
+                    (input)="applyFilterGlobal($event, 'contains')" style="width: auto;" />
+            </div>
         </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th style="width: 3em">
-                <p-tableHeaderCheckbox pTooltip="Izberi vse filtrirane" tooltipPosition="bottom">
-                </p-tableHeaderCheckbox>
+                <p-tableHeaderCheckbox (click)="onRowSelect()"></p-tableHeaderCheckbox>
             </th>
             <th style="width: 5em">Zap.št.</th>
             <th *ngFor="let col of columns">
                 {{ col.header }}
-                <p-sortIcon [field]="col.field" [pSortableColumn]="col.field" pTooltip="Sortiraj"
-                    tooltipPosition="bottom"></p-sortIcon>
-                <i class="pi pi-pencil" pTooltip="Uredi" tooltipPosition="bottom"></i>
+                <p-sortIcon [field]="col.field" [pSortableColumn]="col.field"></p-sortIcon><i
+                    class="pi pi-pencil" (click)="editField(col.field)"
+                    *ngIf="col.field != 'imePlacnik' && selectedOsebas!.length > 1"></i>
             </th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-banka>
-        <tr>
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex+1">
+        <tr [pSelectableRow]="rowData">
             <td>
-                <p-tableCheckbox></p-tableCheckbox>
+                <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
             </td>
-            <td>{{banka.idBank}}</td>
-            <td>{{banka.nazivBank}}</td>
-            <td>{{banka.naslovBank}}</td>
-            <td>{{banka.bicKoda}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+                {{ rowIndex }}&nbsp;&nbsp;<i class="pi pi-pencil" (click)="onRowEdit(rowData)"
+                    *ngIf="selectedOsebas?.length === 0"></i>
+            </td>
+            <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                <div *ngSwitchCase="'znesek'" style="text-align: right">
+                    {{ rowData[col.field] | number: '1.2-2':'sl' }}
+                </div>
+                <div *ngSwitchDefault>{{ rowData[col.field] }}</div>
+            </td>
         </tr>
+        <ng-template pTemplate="paginatorleft" let-state>
+            {{ state.first }}
+        </ng-template>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        Selected: {{ selectedOsebas?.length }} / Filtered:
+        {{ dt.filteredValue?.length || 0 }} / Total: {{ osebas?.length }} records.
     </ng-template>
 </p-table>
+
+
+<!-- message -->
+<p-toast position="top-center" key="tc"></p-toast>
+
+<!-- dialog for delete -->
+<p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="onConfirm()" label="Da"
+                        class="p-button-success"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="onReject()" label="Ne"
+                        class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

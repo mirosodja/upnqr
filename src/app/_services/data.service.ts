@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Banka } from '../_models/banka';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export class DataService {
   private handleError(error: HttpErrorResponse) {
     if (error.status === 404) {
       alert('ERROR: ' + error.status + '!');
-      return Observable.throw('new NotFoundError()');
+      return throwError('Page not found!');
     }
 
     if (error.error instanceof ErrorEvent) {
@@ -40,5 +41,6 @@ export class DataService {
       .get<Banka[]>('./assets/data/bankCode.json')
       .pipe(catchError(this.handleError));
   }
+
 
 }

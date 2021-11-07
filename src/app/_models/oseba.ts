@@ -1,6 +1,6 @@
 export interface Oseba {
     $id: string;
-    imePlacnik?: string;
+    imePlacnik: string;
     placnik_skupina?: string;
     znesek?: number;
     koda_namena?: string;

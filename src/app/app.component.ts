@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,10 +6,4 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent {
   title = 'Potep.in->Upnqr nalogi';
-
-  constructor(private primengConfig: PrimeNGConfig) { }
-
-  ngOnInit() {
-    this.primengConfig.ripple = true;
-  }
 }
