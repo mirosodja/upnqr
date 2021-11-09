@@ -9,3 +9,7 @@
 .pastediv:focus {
     outline: 2px solid hsl(120, 60%, 40%);
 }
+
+label {
+    margin: 3px 3px 5px 3px;
+}
