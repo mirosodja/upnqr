@@ -87,8 +87,8 @@
 </p-table>
 
 
-<!-- message for importing from clipboard-->
-<p-toast position="top-center" key="tc"></p-toast>
+<!-- message importing from clipboard when error-->
+<p-toast position="top-center" key="error_clipboard"></p-toast>
 <!-- message for cookies -->
 <p-toast [style]="{ marginTop: '80px' }" styleClass="custom-toast" key="custom"
     position="top-center">
@@ -99,7 +99,7 @@
 </p-toast>
 
 <!-- confirm message for delete -->
-<p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+<p-toast position="bottom-center" key="confirm_delete" (onClose)="onReject()" [baseZIndex]="5000">
     <ng-template let-message pTemplate="message">
         <div class="p-flex p-flex-column" style="flex: 1">
             <div class="p-text-center">
@@ -298,7 +298,8 @@
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
             <button class="ui-button-warning" type="button" pButton icon="pi pi-close"
-                (click)="delete()" label="Delete" [disabled]="newOseba"></button>
+                (click)="delete()" label="Delete"
+                [disabled]="newOseba || displayEditableField!='all'"></button>
             <button type="button" pButton icon="pi pi-check" (click)="prepare4save()" label="Save"
                 [disabled]="upnForm.invalid"></button>
         </div>

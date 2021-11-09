@@ -16,7 +16,7 @@ export class TableComponent implements OnInit {
 
   cols: { field: string; header: string; }[] = [];
   osebas: Oseba[] = [];
-  oseba: Oseba | undefined;
+  oseba: Oseba = { $id: '', imePlacnik: '' };
   kodasNamen!: SelectItem[];
   // ! za CRUD
   displayDialogEdit: boolean = false; // prikaže menu za urejanje
@@ -116,14 +116,14 @@ export class TableComponent implements OnInit {
   //! editField
   editField(colfield: string): void {
     this.displayEditableField = colfield;
-    // this.newOseba = false;
-    // this.oseba = {};
-    // this.displayDialogEdit = true;
+    this.newOseba = false;
+    this.oseba = { $id: '', imePlacnik: '' };
+    this.displayDialogEdit = true;
   }
 
   //! showErrorPaste
   showErrorPaste() {
-    this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Napaka pri vstavljanju podatkov - ni 8 kolon!' });
+    this.messageService.add({ key: 'error_clipboard', severity: 'error', summary: 'Error', detail: 'Napaka pri vstavljanju podatkov - ni 8 kolon!' });
   }
 
   //!  insertNewRecord
@@ -141,7 +141,7 @@ export class TableComponent implements OnInit {
     this.osebas.splice(index, 1);
     this.storageMap.delete(this.selectedOseba!.imePlacnik).subscribe(() => { });
     this.selectedOseba = undefined;
-    this.oseba = undefined;
+    this.oseba = { $id: '', imePlacnik: '' };
     this.displayDialogEdit = false;
   }
 
@@ -187,11 +187,16 @@ export class TableComponent implements OnInit {
   }
 
   onRowEdit(rowData: Oseba): void {
-    // this.displayEditableField = 'all';
-    // this.newOseba = false;
-    // this.oseba = this.cloneOseba(rowData);
-    // this.selectedOseba = rowData;
-    // this.displayDialogEdit = true;
+    this.displayEditableField = 'all';
+    this.newOseba = false;
+    this.oseba = this.cloneOseba(rowData);
+    this.selectedOseba = rowData;
+    this.displayDialogEdit = true;
+  }
+
+  cloneOseba(c: Oseba): Oseba {
+    const oseba = { ...c };
+    return oseba;
   }
 
   //! apply filter
@@ -229,7 +234,7 @@ export class TableComponent implements OnInit {
   showConfirm() {
     this.messageService.clear();
     this.messageService.add({
-      key: 'c',
+      key: 'confirm_delete',
       sticky: true,
       severity: 'warn',
       summary: 'Ali izbrišem ' + this.selectedOsebas.length + ' zapisov?',
@@ -238,12 +243,12 @@ export class TableComponent implements OnInit {
   }
 
   onConfirm() {
-    this.messageService.clear('c');
+    this.messageService.clear();
     this.deleteSelectedOsebas();
   }
 
   onReject() {
-    this.messageService.clear('c');
+    this.messageService.clear();
   }
 
   //! end show dialog to delete
@@ -272,8 +277,12 @@ export class TableComponent implements OnInit {
     return Number(num);
   }
 
+  //! prepare data to save
   prepare4save(): void {
-
+    if (this.displayEditableField === 'all') {
+      // če shranjujem eno, enostavno shranim
+      this.save();
+    }
   }
 
   save(oseba?: Oseba): void {
@@ -293,21 +302,21 @@ export class TableComponent implements OnInit {
       osebas.splice(0, 0, this.oseba!);
       this.storageMap
         .set(this.oseba!.imePlacnik, this.oseba)
-        .subscribe(() => {});
+        .subscribe(() => { });
       // udpate record
     } else {
       osebas[this.osebas.indexOf(this.selectedOseba!)] = this.oseba!;
       this.storageMap
         .set(this.oseba!.imePlacnik, this.oseba)
-        .subscribe(() => {});
+        .subscribe(() => { });
     }
 
     this.osebas = osebas;
     this.selectedOseba = undefined;
-    this.oseba = undefined;
+    this.oseba = { $id: '', imePlacnik: '' };
   }
   // izracun kontrolne številke po modulu 11
-  calcControlNumber11(referenca: string) {
+  calcControlNumber11(referenca: string): string {
     let i = 0;
     let sestevek = 0;
     let ponder = 2;
