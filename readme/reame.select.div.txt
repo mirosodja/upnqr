@@ -1,0 +1,11 @@
+div {
+    background: #ccc;
+    margin: 20px;
+}
+div:focus {
+    outline: 1px solid blue;
+}
+
+<div tabindex="-1">1</div>
+<div tabindex="-1">2</div>
+<div tabindex="-1">3</div>

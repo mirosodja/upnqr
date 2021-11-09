@@ -1,0 +1,138 @@
+<div>
+    <div>
+        <h3>Pomoč za uporabo programa Izpis UPN nalogov</h3>
+    </div>
+    <div>
+        <div>
+            <h4>O programu</h4>
+            <p>
+                Program Izpis UPN nalogov je namenjen izpisu položnic na printer
+                (obvezno preberi razdelek: <strong>Tiskanje - važno</strong>) in za
+                pripravo položnic za pošiljanje preko e - maila. Pri izpisu na printer
+                uporablja samo UPN naloge na A4 formatu, ki so pripravljeni za tisk na
+                laserskih tiskalnikih.
+            </p>
+            <p>
+                Program zna izpisati UPN naloge s QR kodo v pdf datoteko, tako, da
+                naloge lahko tiskamo iz Pdf Readerja ali podobnega programa. Do
+                posameznega izpisa pridemo tako, da na
+                <a href="./">začetni strani</a> kliknemo meni "Pripravi UPN"
+                <strong>(izbrana mora biti vsaj ena vrstica)</strong>. Ko se odpre nova
+                stran lahko prenesemo PDF dokument (gumb "Prenos PDF") ali ZIP datoteko
+                (gumb "Prenos PDF ZIP"). PDF dokument je namenjen tiskanju na standardne
+                (prednatisnjene) obrazce formata A4, ZIP datoteka pa pošiljanju preko
+                emaila. V ZIP datoteki so zapakirane PDF datoteke izbranih vrstic (vsaka
+                vrstica kot ena datoteka) na začetni strani, format zapisa pa je tak, da ga ni možno
+                tiskati na
+                standardne obrazce (format je 210mm x 99mm).
+            </p>
+            <h4>O uporabljeni bazi podatkov</h4>
+            <p>
+                Baza podatkov je v klientovem (vašem) brskalniku, uporabljen je t.i.
+                IndexedDB API (več:
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API"
+                    target="_blank">IndexedDB API </a>). Za tako rešitev smo se odločili, ker gre za
+                osebne podatke, za
+                katere ne prevzemamo odgovornosti in ki so v tem primeru zapisani samo v
+                vašem brskalniku. PDF datoteka se sicer pripravi na serverju, vendar pa
+                se podatki na serverju ne zapisujejo na kakršenkoli medij.
+            </p>
+            <p>
+                Ker IndexedDB ne razume, da je "www.potep.in" in "potep.in" isti server,
+                pa to včasih povzroča težave, saj baza kar naenkrat "izgine". Torej
+                pazite, da <strong>delate vedno</strong> ali na
+                <strong>"potep.in/upn"</strong> ali na
+                <strong>"www.potep.in/upn"</strong> naslovu.
+            </p>
+            <h4 id="tiskanje">Tiskanje - važno</h4>
+            <p>
+                <strong>Tiskati je možno samo na laserske tiskalnike na standardne obrazce A4
+                    za laserske tiskalnike (ne na obrazce, ki so namenjeni igličnim
+                    tiskalnikom s podajalnikom). V programu, v katerem pregledujete PDF
+                    dokument,
+                    <u style="color: blueviolet">morate imeti pri tiskanju v razdelku velikost
+                        papirja izbrano
+                        opcijo "Dejanska velikost papirja".</u>
+                </strong>
+            </p>
+            <h4>Sklic - izračun kontrolne številke</h4>
+            <p>
+                Program izračunava samo kontrolno vsoto za model SI12 in sicer tako, da
+                zapisom v izboru prišteva +1. Priporočljivo je dati "govorečo kodo",
+                primer LLLLMMDDID recimo 2018022801 (max 12 številk) za primer, ko je
+                UPN nalog bil tiskan 28. februarja 2018 z id= 01.
+            </p>
+            <p>
+                <strong>Za ostale model (npr.: SI00, SI99) program ne izračunava kontrolne
+                    vsote sklica. Zato je v vsaki vrstici v tabeli na
+                    <a href="./">začetni strani</a> potrebno vnesti sklic posebej, če
+                    želimo, da bodo sklici različni. Ker banka tudi pri nekaterih ostalih
+                    modelih izračunava kontrolno vsoto, to lahko pomeni, da uporabnik ne
+                    bo mogel vnesti naloga, če mu niste navedli sklica s pravilno
+                    kontrolno vsoto.
+                </strong>
+            </p>
+            <h4 id="C4">Urejanje posamezne vrstice in urejanje več vrstic</h4>
+            <p>
+                Eno vrstico urejamo tako, da pri zaporedni številki vrstice kliknemo
+                pisalo
+            </p>
+            <p>
+                Dve ali več vrstic urejamo tako, da jih najprej izberemo in nato
+                kliknemo pisalo pod naslovom posamezne stolpca, pri tem se vpišejo enaki
+                podatki pri vseh izbranih vrsticah. Izjema je v primeru reference SI12,
+                kjer se na koncu števila doda ena cifra kot kontrolna vsota.
+            </p>
+            <p>
+                Spreminjamo lahko:
+            </p>
+            <ul>
+                <li>skupino,</li>
+                <li>znesek,</li>
+                <li>kodo namena,</li>
+                <li>namen in rok plačila,</li>
+                <li>TRR prejemnika,</li>
+                <li>referenco in</li>
+                <li>prejemnika.</li>
+            </ul>
+            <h4>Izvoz podatkov</h4>
+            <p>Izvoz podatkov izvozi izbrane vrstice v CSV datoteko.</p>
+            <h4>Uvoz podatkov</h4>
+            <p>
+                Podatke lahko uvozimo preko odložišča. Predlagamo, da najprej dodate v
+                tabelo vsaj en zapis, nato pa podatke izvozite. V programu za urejanje
+                tabele podatke nato dopolnite in ponovno izvozite iz tega programa preko odložišča.
+            </p>
+            <p>
+                Podatki za uvoz se morajo držati pravil glede dolžine polj in oblike
+                zapisa. Če na začetni strani kliknete gumb "Dodaj" se vam bo v
+                pogovornem oknu tudi izpisalo v kakšni obliki morajo biti ti podatki.
+            </p>
+            <p>
+                Predlagamo, da si CSV datoteko pripravite s programom za preglednice, ki
+                CSV datoteko pripravi korektno. Pri pripravi datotek je avtor teh
+                spletnih strani uporabljal Calc program iz zbirke Libre Office in Google
+                Spreadsheet. Z Excelom je bilo preveč težav tako s kodiranjem UTF-8 kot
+                samim CSV zapisom. Pri tem je potrebno paziti tudi na zapis števil za
+                uvoz v UPN naloge (decimalno ločilo mora biti pika).
+            </p>
+            <p>
+                Podatki za uvoz morajo biti kodirani v UTF-8, števila morajo biti v
+                obliki 0.00 (decimalno ločilo je pika). Naslovna vrstica mora imeti
+                imena stolpcev, poimenovani pa morajo biti tako, kot so poimenovani v
+                tabeli na začetni strani. Stolpci v CSV tabeli za uvoz so (in tako
+                morajo biti tudi poimenovani):
+            </p>
+            <ul>
+                <li>Plačnik</li>
+                <li>Skupina</li>
+                <li>Znesek</li>
+                <li>Koda namena</li>
+                <li>Namen plačila</li>
+                <li>TRR</li>
+                <li>Referenca</li>
+                <li>Prejemnik</li>
+            </ul>
+        </div>
+    </div>
+</div>
