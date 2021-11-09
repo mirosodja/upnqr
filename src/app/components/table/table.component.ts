@@ -278,11 +278,14 @@ export class TableComponent implements OnInit {
   }
 
   //! prepare data to save
+  //TODO popravi še kodo
   prepare4save(): void {
     if (this.displayEditableField === 'all') {
       // če shranjujem eno, enostavno shranim
       this.save();
     }
+    this.messageService.clear();
+    this.displayDialogEdit = false;
   }
 
   save(oseba?: Oseba): void {

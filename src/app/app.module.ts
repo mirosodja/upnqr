@@ -16,6 +16,8 @@ import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { DropdownModule } from 'primeng/dropdown';
+import {InputTextModule} from 'primeng/inputtext';
+
 // end primneng
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,6 +48,7 @@ registerLocaleData(localeSl, 'sl');
     MessagesModule,
     MessageModule,
     DropdownModule,
+    InputTextModule,
     AppRoutingModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'sl' }],
