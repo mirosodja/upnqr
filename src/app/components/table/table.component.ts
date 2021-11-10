@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { Oseba } from 'src/app/_models/oseba';
 import { DataService } from 'src/app/_services/data.service';
+import { SharedService } from 'src/app/_services/shared.service';
 import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
 import * as _ from 'lodash';
 import { Table } from 'primeng/table';
@@ -29,7 +30,7 @@ export class TableComponent implements OnInit {
   @ViewChild('dt')
   private table: Table | undefined;
 
-  constructor(private dataService: DataService, private storageMap: StorageMap, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  constructor(private dataService: DataService, private sharedService: SharedService, private storageMap: StorageMap, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
 
   ngOnInit(): void {
@@ -115,6 +116,7 @@ export class TableComponent implements OnInit {
 
   //! editField
   editField(colfield: string): void {
+    console.log(colfield)
     this.displayEditableField = colfield;
     this.newOseba = false;
     this.oseba = { $id: '', imePlacnik: '' };
@@ -182,8 +184,8 @@ export class TableComponent implements OnInit {
 
   //! onRowSelect  
   onRowSelect() {
-    // this.sharedService.changeMessage(!!this.selectedOsebas.length);
-    // this.sharedService.changeSharedOsebas(this.selectedOsebas);
+    this.sharedService.changeMessage(!!this.selectedOsebas.length);
+    this.sharedService.changeSharedOsebas(this.selectedOsebas);
   }
 
   onRowEdit(rowData: Oseba): void {

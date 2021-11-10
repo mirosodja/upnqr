@@ -5,7 +5,6 @@ export interface Oseba {
     znesek?: number;
     koda_namena?: string;
     namen_rok_placila?: string;
-    prejemnik_BIC?: string;
     prejemnik_IBAN?: string;
     prejemnik_referenca?: string;
     imePrejemnik?: string;

@@ -133,8 +133,8 @@
                     <div class="p-col-12 p-md-10">
                         <input required pattern="[^,;]{1,32},[^,;]{1,32},[^,;]{1,32}" pInputText
                             placeholder="Zapis v obliki 'Ime Priimek, Ulica Številka, Številka Pošta', max. 32 znakov/polje!"
-                            [(ngModel)]="oseba.imePlacnik" name="imePlacnik"
-                            #imePlacnik="ngModel" />
+                            [(ngModel)]="oseba.imePlacnik" name="imePlacnik" #imePlacnik="ngModel"
+                            [disabled]="!newOseba" />
                     </div>
                     <div class="p-col-12 p-md-10"
                         *ngIf="imePlacnik.invalid && (imePlacnik.dirty || imePlacnik.touched)">
@@ -205,6 +205,23 @@
                     </div>
                 </div>
                 <!-- !END namen_rok_placila -->
+                <!-- prejemnik_IBAN -->
+                <div class="p-field p-grid"
+                    *ngIf="displayEditableField === 'all' || displayEditableField === 'prejemnik_IBAN'">
+                    <label for="prejemnik_IBAN" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">TRR</label>
+                    <div class="p-col-12 p-md-10">
+                        <input pInputText [(ngModel)]="oseba.prejemnik_IBAN"
+                            pattern="^[A-Z]{2}\d{2}\s\d{4}\s\d{4}\s\d{4}\s\d{3}$"
+                            #prejemnik_IBAN="ngModel" name="prejemnik_IBAN"
+                            placeholder="TRR v obliki SI## #### #### #### ###" />
+                    </div>
+                    <div class="p-col-12 p-md-10"
+                        *ngIf="prejemnik_IBAN.invalid && (prejemnik_IBAN.dirty || prejemnik_IBAN.touched)">
+                        <p-message *ngIf="prejemnik_IBAN.errors!.pattern" severity="warn"
+                            text="TRR v obliki SI## #### #### #### ###."></p-message>
+                    </div>
+                </div>
+                <!-- !END prejemnik_IBAN -->
                 <!-- prejemnik_referenca -->
                 <div class="p-field p-grid"
                     *ngIf="displayEditableField === 'all' || displayEditableField === 'prejemnik_referenca'">
