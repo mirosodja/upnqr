@@ -39,7 +39,6 @@ export class TableComponent implements OnInit {
     this.storageMap.keys().subscribe({
       next: (key) => {
         this.storageMap.get(key).subscribe((oseba: any): void => {
-          // console.log({ oseba });
           oseba.id = key;
           this.osebas[this.osebas.length] = oseba;
         });
@@ -68,7 +67,7 @@ export class TableComponent implements OnInit {
       this.kodasNamen = _.map(data, (item) =>
         _.assign({ label: item.Koda, value: item.Koda })
       );
-      this.kodasNamen.splice(0, 0, { label: '', value: '' });
+      this.kodasNamen.splice(0, 0, { label: 'Ni kode', value: '' });
     });
   }
 
@@ -116,7 +115,6 @@ export class TableComponent implements OnInit {
 
   //! editField
   editField(colfield: string): void {
-    console.log(colfield)
     this.displayEditableField = colfield;
     this.newOseba = false;
     this.oseba = { $id: '', imePlacnik: '' };
@@ -280,13 +278,31 @@ export class TableComponent implements OnInit {
   }
 
   //! prepare data to save
-  //TODO popravi še kodo
   prepare4save(): void {
     if (this.displayEditableField === 'all') {
       // če shranjujem eno, enostavno shranim
       this.save();
+    } else {
+      // ko jih je več povečam referenco za ena, če je SI12
+      const key: string = this.displayEditableField;
+      console.log({ key });
+      const rows: Oseba[] = this.selectedOsebas;
+      const oseba2change: any = this.oseba; // to spreminjam v dialgog boxu v fieldu
+      _.each(rows, (row: any, keyRows: number) => {
+        let value: string = oseba2change[key];
+        if (key === 'prejemnik_referenca') {
+          if (value.length > 17) {
+            value = value.substr(0, 17);
+          }
+          const rightString: Number =
+            Number(value.substr(5, value.length - 5)) + keyRows;
+          value = value.substr(0, 4) + ' ' + rightString.toString();
+        }
+        row[key] = value;
+        console.log({ row });
+        this.save(row);
+      });
     }
-    this.messageService.clear();
     this.displayDialogEdit = false;
   }
 

@@ -3,13 +3,15 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Kodanamena } from '../_models/kodanamena';
+import { Oseba } from '../_models/oseba';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
+  private baseUrl = '../crud/upn_services/';
+  
   constructor(private http: HttpClient) {
   }
 
@@ -39,6 +41,22 @@ export class DataService {
   getKodaNamena(): Observable<Kodanamena[]> {
     return this.http
       .get<Kodanamena[]>('./assets/data/codeDefinition.json')
+      .pipe(catchError(this.handleError));
+  }
+
+  getPdf(osebas: Oseba[], actionUrl: string): Observable<Blob> {
+    return this.http
+      .post(this.baseUrl + actionUrl, osebas, {
+        responseType: 'blob'
+      })
+      .pipe(catchError(this.handleError));
+  }
+
+  getPdf4Zip(osebas: Oseba, actionUrl: string): Observable<Blob> {
+    return this.http
+      .post(this.baseUrl + actionUrl, osebas, {
+        responseType: 'blob'
+      })
       .pipe(catchError(this.handleError));
   }
 }

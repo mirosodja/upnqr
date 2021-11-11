@@ -26,8 +26,8 @@
                     (click)="invertSelectedOsebas()"></button>
                 <button pButton pRipple label="Izvozi" icon="pi pi-download"
                     (click)="dt.exportCSV({ selectionOnly: true })"
-                    [disabled]="!selectedOsebas?.length"></button>
-                <button pButton pRipple label="Upnqr" icon="pi pi-book" pTooltip="Pripravi Upnqr"
+                    [disabled]="!selectedOsebas?.length" pTooltip="Izvozi v CSV datoteko" tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Upnqr" icon="pi pi-book" pTooltip="Pripravi UPN QR naloge"
                     tooltipPosition="bottom" [disabled]="!selectedOsebas?.length"
                     [routerLink]="['/upnqr']"></button>
                 <button pButton pRipple label="Help" icon="pi pi-question" pTooltip="Pomoč"
