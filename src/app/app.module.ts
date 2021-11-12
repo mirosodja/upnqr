@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { registerLocaleData } from '@angular/common';
+import { DatePipe, registerLocaleData } from '@angular/common';
 import localeSl from '@angular/common/locales/sl';
 
 // primeng
@@ -16,8 +16,7 @@ import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { DropdownModule } from 'primeng/dropdown';
-import {InputTextModule} from 'primeng/inputtext';
-
+import { InputTextModule } from 'primeng/inputtext';
 // end primneng
 
 import { AppRoutingModule } from './app-routing.module';
@@ -53,7 +52,7 @@ registerLocaleData(localeSl, 'sl');
     InputTextModule,
     AppRoutingModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'sl' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'sl' }, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

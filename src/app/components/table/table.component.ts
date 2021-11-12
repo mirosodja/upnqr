@@ -103,6 +103,9 @@ export class TableComponent implements OnInit {
         row_data.forEach((value) => {
           row = value.split('\t');
           row.forEach((value, key) => {
+            if (this.cols[key].field == 'znesek') {
+              value = parseFloat(value.replace(/\./g, '').replace(',', '.')).toString();
+            }
             rowObject = _.fromPairs([[this.cols[key].field, value]]);
             data.push(rowObject);
           });
@@ -128,7 +131,7 @@ export class TableComponent implements OnInit {
 
   //!  insertNewRecord
   insertNewRecord(oseba: Oseba): void {
-    this.osebas.splice(this.osebas.length, 0, oseba);
+    this.osebas.splice(0, 0, oseba);
     this.storageMap
       .set(oseba.imePlacnik, oseba)
       .subscribe(() => { });

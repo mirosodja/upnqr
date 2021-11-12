@@ -44,7 +44,7 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
-  getPdf(osebas: Oseba[], actionUrl: string): Observable<Blob> {
+  getPdf(osebas: {}, actionUrl: string): Observable<Blob> {
     return this.http
       .post(this.baseUrl + actionUrl, osebas, {
         responseType: 'blob'
@@ -59,4 +59,5 @@ export class DataService {
       })
       .pipe(catchError(this.handleError));
   }
+  
 }

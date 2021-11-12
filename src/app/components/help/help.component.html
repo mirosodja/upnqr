@@ -1,17 +1,20 @@
 <div>
     <div>
-        <h3>Pomoč za uporabo programa Izpis UPN nalogov</h3>
+        <h2>Pomoč za uporabo "programa UPN QR nalogi"</h2>
     </div>
     <div>
         <div>
-            <h4>O programu</h4>
-            <p>
-                Program Izpis UPN nalogov je namenjen izpisu položnic na printer
-                (obvezno preberi razdelek: <strong>Tiskanje - važno</strong>) in za
-                pripravo položnic za pošiljanje preko e - maila. Pri izpisu na printer
-                uporablja samo UPN naloge na A4 formatu, ki so pripravljeni za tisk na
-                laserskih tiskalnikih.
-            </p>
+            <h3>Na kratko o programo</h3>
+            <ul>
+                <li>Program "UPN QR nalogi" je namenjen vnosu podatkov o posameznem nalogu (gumb "Dodaj") ali prenosu iz drugega programa preko odložišča(gumb "Klikni tu...") </li>
+                <li>pripravi pdf datoteke za izpis položnic na printer (gumb "Upnqr" in nato "Prenos PDF")
+                    (obvezno preberi razdelek: <strong>Tiskanje - važno</strong>),</li>
+                <li>pripravo položnic za pošiljanje preko e - maila (naloge zapakira v zip datoteko
+                    za prenos na računalnik, v zip datoteki so pdf-ji posameznih nalogov) (gumb "Upnqr" in nato "Prenos ZIP"),</li>
+                <li>pripravljeno pdf datoteko lahko izpišemo na laserskem tiskalniku na UPN QR nalog
+                    formata A4</li>
+            </ul>
+            <h3>O programu</h3>
             <p>
                 Program zna izpisati UPN naloge s QR kodo v pdf datoteko, tako, da
                 naloge lahko tiskamo iz Pdf Readerja ali podobnega programa. Do
@@ -26,7 +29,7 @@
                 tiskati na
                 standardne obrazce (format je 210mm x 99mm).
             </p>
-            <h4>O uporabljeni bazi podatkov</h4>
+            <h3>O uporabljeni bazi podatkov</h3>
             <p>
                 Baza podatkov je v klientovem (vašem) brskalniku, uporabljen je t.i.
                 IndexedDB API (več:
@@ -44,7 +47,7 @@
                 <strong>"potep.in/upn"</strong> ali na
                 <strong>"www.potep.in/upn"</strong> naslovu.
             </p>
-            <h4 id="tiskanje">Tiskanje - važno</h4>
+            <h3 id="tiskanje">Tiskanje - važno</h3>
             <p>
                 <strong>Tiskati je možno samo na laserske tiskalnike na standardne obrazce A4
                     za laserske tiskalnike (ne na obrazce, ki so namenjeni igličnim
@@ -55,7 +58,7 @@
                         opcijo "Dejanska velikost papirja".</u>
                 </strong>
             </p>
-            <h4>Sklic - izračun kontrolne številke</h4>
+            <h3>Sklic - izračun kontrolne številke</h3>
             <p>
                 Program izračunava samo kontrolno vsoto za model SI12 in sicer tako, da
                 zapisom v izboru prišteva +1. Priporočljivo je dati "govorečo kodo",
@@ -72,7 +75,7 @@
                     kontrolno vsoto.
                 </strong>
             </p>
-            <h4 id="C4">Urejanje posamezne vrstice in urejanje več vrstic</h4>
+            <h3 id="C4">Urejanje posamezne vrstice in urejanje več vrstic</h3>
             <p>
                 Eno vrstico urejamo tako, da pri zaporedni številki vrstice kliknemo
                 pisalo
@@ -95,13 +98,13 @@
                 <li>referenco in</li>
                 <li>prejemnika.</li>
             </ul>
-            <h4>Izvoz podatkov</h4>
+            <h3>Izvoz podatkov</h3>
             <p>Izvoz podatkov izvozi izbrane vrstice v CSV datoteko.</p>
-            <h4>Uvoz podatkov</h4>
+            <h3>Uvoz podatkov</h3>
             <p>
                 Podatke lahko uvozimo preko odložišča. Predlagamo, da najprej dodate v
                 tabelo vsaj en zapis, nato pa podatke izvozite. V programu za urejanje
-                tabele podatke nato dopolnite in ponovno izvozite iz tega programa preko odložišča.
+                tabele podatke nato dopolnite in kopirate preko odložišča.
             </p>
             <p>
                 Podatki za uvoz se morajo držati pravil glede dolžine polj in oblike
@@ -109,29 +112,20 @@
                 pogovornem oknu tudi izpisalo v kakšni obliki morajo biti ti podatki.
             </p>
             <p>
-                Predlagamo, da si CSV datoteko pripravite s programom za preglednice, ki
-                CSV datoteko pripravi korektno. Pri pripravi datotek je avtor teh
-                spletnih strani uporabljal Calc program iz zbirke Libre Office in Google
-                Spreadsheet. Z Excelom je bilo preveč težav tako s kodiranjem UTF-8 kot
-                samim CSV zapisom. Pri tem je potrebno paziti tudi na zapis števil za
-                uvoz v UPN naloge (decimalno ločilo mora biti pika).
-            </p>
-            <p>
                 Podatki za uvoz morajo biti kodirani v UTF-8, števila morajo biti v
-                obliki 0.00 (decimalno ločilo je pika). Naslovna vrstica mora imeti
+                obliki 0,00 (decimalno ločilo je vejica). Naslovna vrstica mora imeti
                 imena stolpcev, poimenovani pa morajo biti tako, kot so poimenovani v
-                tabeli na začetni strani. Stolpci v CSV tabeli za uvoz so (in tako
-                morajo biti tudi poimenovani):
+                tabeli na začetni strani. Stolpci v tabeli za uvoz so (v <strong>krepko</strong> so zapisana imena stolpcev):
             </p>
             <ul>
-                <li>Plačnik</li>
-                <li>Skupina</li>
-                <li>Znesek</li>
-                <li>Koda namena</li>
-                <li>Namen plačila</li>
-                <li>TRR</li>
-                <li>Referenca</li>
-                <li>Prejemnik</li>
+                <li><strong>Plačnik</strong> (Ime Priimek, Ulica HŠ, PŠ Pošta - ločeno z vejicami)</li>
+                <li><strong>Skupina</strong></li>
+                <li><strong>Znesek</strong></li>
+                <li><strong>Koda namen< /strong></li>
+                <li><strong>Namen plačila</strong></li>
+                <li><strong>TRR</strong></li>
+                <li><strong>Referenca</strong></li>
+                <li><strong>Prejemnik</strong> (Ime Priimek, Ulica HŠ, PŠ Pošta - ločeno z vejicami)</li>
             </ul>
         </div>
     </div>

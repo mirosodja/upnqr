@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HelpComponent } from './components/help/help.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TableComponent } from './components/table/table.component';
+import { UpnqrComponent } from './components/upnqr/upnqr.component';
 
 const routes: Routes = [{ path: '', component: TableComponent },
+{ path: 'upnqr', component: UpnqrComponent },
 { path: 'help', component: HelpComponent },
 { path: '**', component: PageNotFoundComponent }];
 
