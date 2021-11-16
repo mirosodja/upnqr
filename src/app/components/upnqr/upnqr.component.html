@@ -1,1 +1,55 @@
-<p>upnqr works!</p>
+<h2>Predogled QR UPN</h2>
+<div *ngIf="!selectedOsebas?.length" class="offset-1">
+    <p-message severity="warn"
+        text="Ni izbranih zapisov, v meniju 'Home' je potrebno izbrati zapise v tabeli!">
+    </p-message>
+</div>
+<h3>Število nalogov: {{selectedOsebas?.length}}
+</h3>
+<div class="grid">
+    <div class="col-1"><button pButton type="button" label="Nazaj" icon="pi pi-angle-left"
+            [routerLink]="['/']"></button></div>
+    <div class="col-1">&nbsp;</div>
+    <div class="col-2">
+        <button pButton type="button" (click)="createUpnPdf()" [disabled]="!selectedOsebas?.length"
+            label="Prenos PDF"></button>
+    </div>
+    <div class="col-2">
+        <button pButton type="button" (click)="createJsZip()" [disabled]="!selectedOsebas?.length"
+            label="Prenos PDF ZIP"></button>
+    </div>
+    <div class="col-2">
+        <img src="./assets/img/download.gif" width="80" height="40" [hidden]="hideDl" />
+    </div>
+</div>
+<!-- upn in sliko -->
+<div *ngFor="let row of selectedOsebas">
+    <div class="upnQrPredinPoUpn">
+        <br />
+        <h4>UPN QR nalog št.: {{ selectedOsebas.indexOf(row) + 1 }}</h4>
+    </div>
+    <div class="upnQrScreen">
+        <div class="upnQrTalon">
+            <span class="imePlacnik">{{ row.imePlacnik }}</span>
+            <span class="namen_rok_placila"> {{ row.namen_rok_placila }} </span>
+            <span class="znesek">***{{ row.znesek | currency: '€' }}</span>
+            <span class="prejemnik_IBAN">{{ row.prejemnik_IBAN }}, {{ row.prejemnik_referenca
+                }}</span>
+            <span class="imePrejemnik">{{ row.imePrejemnik }}</span>
+        </div>
+        <div class="upnQrNalog">
+            <span class="imePlacnik">{{ row.imePlacnik }}</span>
+            <span class="koda_namena">{{ row.koda_namena }}</span>
+            <span class="namen_rok_placila"> {{ row.namen_rok_placila }} </span>
+            <span class="znesek">***{{ row.znesek | currency: '€' }}</span>
+            <span class="prejemnik_IBAN">{{ row.prejemnik_IBAN }}</span>
+            <span class="prejemnik_referenca">{{ row.prejemnik_referenca }}</span>
+            <span class="imePrejemnik">{{ row.imePrejemnik }}</span>
+        </div>
+    </div>
+    <div class="upnQrPredinPoUpn"></div>
+    <div class="upnQrPredinPoUpn"></div>
+    <div>
+        <hr />
+    </div>
+</div>

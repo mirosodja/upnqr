@@ -11,7 +11,7 @@ import { Oseba } from '../_models/oseba';
 })
 export class DataService {
   private baseUrl = '../crud/upn_services/';
-  
+
   constructor(private http: HttpClient) {
   }
 
@@ -44,7 +44,7 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
-  getPdf(osebas: {}, actionUrl: string): Observable<Blob> {
+  getPdf(osebas: Oseba[], actionUrl: string): Observable<Blob> {
     return this.http
       .post(this.baseUrl + actionUrl, osebas, {
         responseType: 'blob'
@@ -59,5 +59,5 @@ export class DataService {
       })
       .pipe(catchError(this.handleError));
   }
-  
+
 }

@@ -37,7 +37,7 @@ export class TableComponent implements OnInit {
     this.primengConfig.ripple = true;
 
     this.storageMap.keys().subscribe({
-      next: (key) => {
+      next: (key: string) => {
         this.storageMap.get(key).subscribe((oseba: any): void => {
           oseba.id = key;
           this.osebas[this.osebas.length] = oseba;
@@ -68,6 +68,10 @@ export class TableComponent implements OnInit {
         _.assign({ label: item.Koda, value: item.Koda })
       );
       this.kodasNamen.splice(0, 0, { label: 'Ni kode', value: '' });
+    });
+    
+    this.sharedService.currentUpnSharedOsebas.subscribe((selectedOsebas: Oseba[]) => {
+      this.selectedOsebas = selectedOsebas;
     });
   }
 
@@ -288,7 +292,6 @@ export class TableComponent implements OnInit {
     } else {
       // ko jih je več povečam referenco za ena, če je SI12
       const key: string = this.displayEditableField;
-      console.log({ key });
       const rows: Oseba[] = this.selectedOsebas;
       const oseba2change: any = this.oseba; // to spreminjam v dialgog boxu v fieldu
       _.each(rows, (row: any, keyRows: number) => {
@@ -302,7 +305,6 @@ export class TableComponent implements OnInit {
           value = value.substr(0, 4) + ' ' + rightString.toString();
         }
         row[key] = value;
-        console.log({ row });
         this.save(row);
       });
     }
