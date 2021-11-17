@@ -1,0 +1,1 @@
+ng build upnqr --base-href=./upnqr --aot=true --build-optimizer=true

@@ -38,6 +38,10 @@ export class DataService {
     return throwError('Something bad happened; please try again later.');
   }
 
+  private handleComplete() {
+    return true;
+  }
+
   getKodaNamena(): Observable<Kodanamena[]> {
     return this.http
       .get<Kodanamena[]>('./assets/data/codeDefinition.json')
@@ -52,9 +56,9 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
-  getPdf4Zip(osebas: Oseba, actionUrl: string): Observable<Blob> {
+  getPdf4Zip(oseba: Oseba, actionUrl: string): Observable<Blob> {
     return this.http
-      .post(this.baseUrl + actionUrl, osebas, {
+      .post(this.baseUrl + actionUrl, oseba, {
         responseType: 'blob'
       })
       .pipe(catchError(this.handleError));

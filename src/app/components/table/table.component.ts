@@ -69,7 +69,7 @@ export class TableComponent implements OnInit {
       );
       this.kodasNamen.splice(0, 0, { label: 'Ni kode', value: '' });
     });
-    
+
     this.sharedService.currentUpnSharedOsebas.subscribe((selectedOsebas: Oseba[]) => {
       this.selectedOsebas = selectedOsebas;
     });
@@ -296,7 +296,7 @@ export class TableComponent implements OnInit {
       const oseba2change: any = this.oseba; // to spreminjam v dialgog boxu v fieldu
       _.each(rows, (row: any, keyRows: number) => {
         let value: string = oseba2change[key];
-        if (key === 'prejemnik_referenca') {
+        if (key === 'prejemnik_referenca' && value && value.substr(0, 4) == "SI12") {
           if (value.length > 17) {
             value = value.substr(0, 17);
           }

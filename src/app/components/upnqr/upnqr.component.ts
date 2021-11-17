@@ -52,13 +52,15 @@ export class UpnqrComponent implements OnInit {
   createJsZip(): void {
     this.hideDl = false;
     const jszip = new JSZip();
-    this.selectedOsebas.forEach((oseba: Oseba, index: number) => {
+    let counter: number = 0;
+    this.selectedOsebas.forEach((oseba: Oseba) => {
       this.dataService
         .getPdf4Zip(oseba, 'pdfUpnQr4stream2zip')
         .subscribe((data: Blob) => {
           const fileName = oseba.imePlacnik.replace(/ /g, '') + '.pdf';
           jszip.file(fileName, data);
-          if (index === this.selectedOsebas.length - 1) {
+          counter++;
+          if (counter === this.selectedOsebas.length) {
             jszip.generateAsync({ type: 'blob' }).then((content: Blob): void => {
               const currDate = new Date();
               const fileName =

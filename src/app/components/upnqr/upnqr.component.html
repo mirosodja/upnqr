@@ -4,8 +4,6 @@
         text="Ni izbranih zapisov, v meniju 'Home' je potrebno izbrati zapise v tabeli!">
     </p-message>
 </div>
-<h3>Število nalogov: {{selectedOsebas?.length}}
-</h3>
 <div class="grid">
     <div class="col-1"><button pButton type="button" label="Nazaj" icon="pi pi-angle-left"
             [routerLink]="['/']"></button></div>
@@ -22,6 +20,7 @@
         <img src="./assets/img/download.gif" width="80" height="40" [hidden]="hideDl" />
     </div>
 </div>
+<h3>Število nalogov: {{selectedOsebas?.length}}</h3>
 <!-- upn in sliko -->
 <div *ngFor="let row of selectedOsebas">
     <div class="upnQrPredinPoUpn">
