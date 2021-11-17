@@ -11,7 +11,9 @@ const routes: Routes = [{ path: '', component: TableComponent },
 { path: '**', component: PageNotFoundComponent }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    anchorScrolling: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

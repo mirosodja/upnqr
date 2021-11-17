@@ -6,28 +6,32 @@
         <div>
             <h3>Na kratko o programo</h3>
             <ul>
-                <li>Program "UPN QR nalogi" je namenjen vnosu podatkov o posameznem nalogu (gumb "Dodaj") ali prenosu iz drugega programa preko odložišča(gumb "Klikni tu...") </li>
-                <li>pripravi pdf datoteke za izpis položnic na printer (gumb "Upnqr" in nato "Prenos PDF")
+                <li>Program "UPN QR nalogi" je namenjen vnosu podatkov o posameznem nalogu (gumb
+                    "Dodaj") ali prenosu iz drugega programa preko odložišča(gumb "Klikni tu...").
+                    Stuktura podatkov je razvidna v poglavju <a [routerLink]="['/help']"
+                        fragment="uvoz">"Uvoz podatkov"</a>.</li>
+                <li>pripravi pdf datoteke za izpis položnic na printer (gumb "Upnqr" in nato "Prenos
+                    PDF")
                     (obvezno preberi razdelek: <strong>Tiskanje - važno</strong>),</li>
                 <li>pripravo položnic za pošiljanje preko e - maila (naloge zapakira v zip datoteko
-                    za prenos na računalnik, v zip datoteki so pdf-ji posameznih nalogov) (gumb "Upnqr" in nato "Prenos ZIP"),</li>
+                    za prenos na računalnik, v zip datoteki so pdf-ji posameznih nalogov) (gumb
+                    "Upnqr" in nato "Prenos ZIP"),</li>
                 <li>pripravljeno pdf datoteko lahko izpišemo na laserskem tiskalniku na UPN QR nalog
-                    formata A4</li>
+                    formata A4,</li>
             </ul>
             <h3>O programu</h3>
             <p>
                 Program zna izpisati UPN naloge s QR kodo v pdf datoteko, tako, da
-                naloge lahko tiskamo iz Pdf Readerja ali podobnega programa. Do
+                naloge lahko tiskamo iz programa za branje pdf datotek. Do
                 posameznega izpisa pridemo tako, da na
-                <a href="./">začetni strani</a> kliknemo meni "Pripravi UPN"
+                <a href="./">začetni strani</a> kliknemo gumb "Upnqr"
                 <strong>(izbrana mora biti vsaj ena vrstica)</strong>. Ko se odpre nova
                 stran lahko prenesemo PDF dokument (gumb "Prenos PDF") ali ZIP datoteko
                 (gumb "Prenos PDF ZIP"). PDF dokument je namenjen tiskanju na standardne
                 (prednatisnjene) obrazce formata A4, ZIP datoteka pa pošiljanju preko
                 emaila. V ZIP datoteki so zapakirane PDF datoteke izbranih vrstic (vsaka
                 vrstica kot ena datoteka) na začetni strani, format zapisa pa je tak, da ga ni možno
-                tiskati na
-                standardne obrazce (format je 210mm x 99mm).
+                tiskati na standardne obrazce (format je 210mm x 99mm).
             </p>
             <h3>O uporabljeni bazi podatkov</h3>
             <p>
@@ -44,8 +48,8 @@
                 Ker IndexedDB ne razume, da je "www.potep.in" in "potep.in" isti server,
                 pa to včasih povzroča težave, saj baza kar naenkrat "izgine". Torej
                 pazite, da <strong>delate vedno</strong> ali na
-                <strong>"potep.in/upn"</strong> ali na
-                <strong>"www.potep.in/upn"</strong> naslovu.
+                <strong>"potep.in/upnqr"</strong> ali na
+                <strong>"www.potep.in/upnqr"</strong> naslovu.
             </p>
             <h3 id="tiskanje">Tiskanje - važno</h3>
             <p>
@@ -54,16 +58,15 @@
                     tiskalnikom s podajalnikom). V programu, v katerem pregledujete PDF
                     dokument,
                     <u style="color: blueviolet">morate imeti pri tiskanju v razdelku velikost
-                        papirja izbrano
-                        opcijo "Dejanska velikost papirja".</u>
+                        papirja izbrano opcijo "Dejanska velikost papirja" oziroma v nekaterih programih povečavo "100%" .</u>
                 </strong>
             </p>
             <h3>Sklic - izračun kontrolne številke</h3>
             <p>
                 Program izračunava samo kontrolno vsoto za model SI12 in sicer tako, da
                 zapisom v izboru prišteva +1. Priporočljivo je dati "govorečo kodo",
-                primer LLLLMMDDID recimo 2018022801 (max 12 številk) za primer, ko je
-                UPN nalog bil tiskan 28. februarja 2018 z id= 01.
+                primer LLLLMMDDID (npr.: 2021022801 - max 12 številk) za primer, ko je
+                UPN nalog bil tiskan 28. februarja 2021 z id= 01.
             </p>
             <p>
                 <strong>Za ostale model (npr.: SI00, SI99) program ne izračunava kontrolne
@@ -99,33 +102,42 @@
                 <li>prejemnika.</li>
             </ul>
             <h3>Izvoz podatkov</h3>
-            <p>Izvoz podatkov izvozi izbrane vrstice v CSV datoteko.</p>
-            <h3>Uvoz podatkov</h3>
+            <p>Izvoz podatkov prenese izbrane vrstice v CSV (z vejicami ločene vrednosti) datoteko.</p>
+            <h3 id="uvoz">Uvoz podatkov</h3>
             <p>
                 Podatke lahko uvozimo preko odložišča. Predlagamo, da najprej dodate v
                 tabelo vsaj en zapis, nato pa podatke izvozite. V programu za urejanje
-                tabele podatke nato dopolnite in kopirate preko odložišča.
+                tabele podatke nato uvozite, dopolnite in kopirate preko odložišča.
             </p>
             <p>
                 Podatki za uvoz se morajo držati pravil glede dolžine polj in oblike
-                zapisa. Če na začetni strani kliknete gumb "Dodaj" se vam bo v
+                zapisa. Če na začetni strani kliknete gumb "Dodaj", se vam bo v
                 pogovornem oknu tudi izpisalo v kakšni obliki morajo biti ti podatki.
             </p>
             <p>
-                Podatki za uvoz morajo biti kodirani v UTF-8, števila morajo biti v
+                Podatki morajo biti pripravljeni tako, da so števila v
                 obliki 0,00 (decimalno ločilo je vejica). Naslovna vrstica mora imeti
                 imena stolpcev, poimenovani pa morajo biti tako, kot so poimenovani v
-                tabeli na začetni strani. Stolpci v tabeli za uvoz so (v <strong>krepko</strong> so zapisana imena stolpcev):
+                tabeli na začetni strani. Stolpci v tabeli za uvoz so (v <strong>krepko</strong> so
+                zapisana imena stolpcev):
             </p>
             <ul>
-                <li><strong>Plačnik</strong> (Ime Priimek, Ulica HŠ, PŠ Pošta - ločeno z vejicami)</li>
-                <li><strong>Skupina</strong></li>
-                <li><strong>Znesek</strong></li>
-                <li><strong>Koda namen</strong></li>
-                <li><strong>Namen plačila</strong></li>
-                <li><strong>TRR</strong></li>
-                <li><strong>Referenca</strong></li>
-                <li><strong>Prejemnik</strong> (Ime Priimek, Ulica HŠ, PŠ Pošta - ločeno z vejicami)</li>
+                <li><strong>Plačnik</strong> - Ime Priimek, Ulica HŠ, PŠ Pošta - ločeno z vejicami,
+                    največ 32 znakov/ polje, skupaj (z vejicami) 98 znakov - obvezno polje</li>
+                <li><strong>Skupina</strong> - največ 20 znakov - neobvezno polje, namenjeno
+                    grupiranju podatkov s pomočjo filtra</li>
+                <li><strong>Znesek</strong> - številka, decimalno mesto: vejica, oznaka tisočic:
+                    pika - obvezno polje</li>
+                <li><strong>Koda namen</strong> - štirje znaki, v skladu z normativi bank - obvezno
+                    polje</li>
+                <li><strong>Namen plačila</strong> - največ 42 znakov - obvezno polje</li>
+                <li><strong>TRR</strong> - v skadu z normativi bank za številko transakcijskega
+                    računa - obvezno polje</li>
+                <li><strong>Referenca</strong> - v skadu z normativi bank za referenco - obvezno
+                    polje</li>
+                <li><strong>Prejemnik</strong> - Ime Priimek, Ulica HŠ, PŠ Pošta - ločeno z
+                    vejicami, največ 32 znakov/ polje, skupaj (z vejicami) 98 znakov - obvezno polje
+                </li>
             </ul>
         </div>
     </div>
