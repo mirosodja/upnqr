@@ -326,8 +326,8 @@ class PdfController
             'hpadding' => 'auto',
             'fgcolor' => array(0, 0, 0),
             'bgcolor' => false, //array(255,255,255)
-            'module_width' => 1, // width of a single module in points
-            'module_height' => 1, // height of a single module in points
+            'module_width' => 77, // width of a single module in points
+            'module_height' => 77, // height of a single module in points
         );
 
         // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)
@@ -443,8 +443,9 @@ class PdfController
         $data4Qrcode["znesek"] = sprintf('%011d', ltrim(str_replace(",", "", $data4Qrcode["znesek"]), '*'));
         $data4Qrcode["prejemnik_IBAN"] = preg_replace('/^\s+|\s+$|\s+/', '', $data4Qrcode["prejemnik_IBAN"]);
         $data4Qrcode["prejemnik_referenca"] = preg_replace('/^\s+|\s+$|\s+/', '', $data4Qrcode["prejemnik_referenca"]);
-        $string = implode("\n", $data4Qrcode) . "\n";
-        $string .= sprintf('%03d', strlen($string)) . "\n";
+        $string = implode(chr(10), $data4Qrcode) . chr(10);
+        // adding kontrol sum
+        $string .= sprintf('%03d', strlen($string)) . chr(10) . " ";
         return $string;
     }
 }
