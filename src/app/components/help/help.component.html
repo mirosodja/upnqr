@@ -1,24 +1,24 @@
 <div>
     <div>
-        <h2>Pomoč za uporabo "programa UPN QR nalogi"</h2>
+        <h2>Pomoč za uporabo programa "Univerzalni plačilni nalogi - UPN QR program"</h2>
     </div>
     <div>
         <div>
-            <h3>Na kratko o programo</h3>
+            <h3>Program "Univerzalni plačilni nalogi - UPN QR program"</h3>
             <ul>
-                <li>Program "UPN QR nalogi" je namenjen vnosu podatkov o posameznem nalogu (gumb
-                    "Dodaj") ali prenosu iz drugega programa preko odložišča(gumb "Klikni tu...").
+                <li>je namenjen vnosu podatkov o posameznem nalogu (gumb "Dodaj") ali prenosu iz
+                    drugega programa preko odložišča(gumb "Klikni tu...").
                     Stuktura podatkov je razvidna v poglavju <a [routerLink]="['/help']"
-                        fragment="uvoz">"Uvoz podatkov"</a>.</li>
+                        fragment="uvoz">"Uvoz podatkov"</a>,</li>
                 <li>pripravi pdf datoteke za izpis položnic na printer (gumb "Upnqr" in nato "Prenos
                     PDF")
                     (obvezno preberi razdelek: <strong>Tiskanje - važno</strong>),</li>
                 <li>pripravo položnic za pošiljanje preko e - maila (naloge zapakira v zip datoteko
                     za prenos na računalnik, v zip datoteki so pdf-ji posameznih nalogov) (gumb
-                    "Upnqr" in nato "Prenos ZIP"),</li>
-                <li>pripravljeno pdf datoteko lahko izpišemo na laserskem tiskalniku na UPN QR nalog
-                    formata A4,</li>
+                    "Upnqr" in nato "Prenos ZIP").</li>
             </ul>
+            <p>Pripravljeno pdf/zip datoteko lahko izpišemo na laserskem tiskalniku na obrazec UPN
+                QR formata A4 oziroma pošljemo preko elektronske pošte.</p>
             <h3>O programu</h3>
             <p>
                 Program zna izpisati UPN naloge s QR kodo v pdf datoteko, tako, da
@@ -28,9 +28,10 @@
                 <strong>(izbrana mora biti vsaj ena vrstica)</strong>. Ko se odpre nova
                 stran lahko prenesemo PDF dokument (gumb "Prenos PDF") ali ZIP datoteko
                 (gumb "Prenos PDF ZIP"). PDF dokument je namenjen tiskanju na standardne
-                (prednatisnjene) obrazce formata A4, ZIP datoteka pa pošiljanju preko
+                (prednatisnjene) obrazce UPN QR formata A4, ZIP datoteka pa pošiljanju preko
                 emaila. V ZIP datoteki so zapakirane PDF datoteke izbranih vrstic (vsaka
-                vrstica kot ena datoteka) na začetni strani, format zapisa pa je tak, da ga ni možno
+                vrstica kot ena datoteka) v tabeli na začetni strani, format zapisa pa je tak, da ga
+                ni možno
                 tiskati na standardne obrazce (format je 210mm x 99mm).
             </p>
             <h3>O uporabljeni bazi podatkov</h3>
@@ -38,15 +39,16 @@
                 Baza podatkov je v klientovem (vašem) brskalniku, uporabljen je t.i.
                 IndexedDB API (več:
                 <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API"
-                    target="_blank">IndexedDB API </a>). Za tako rešitev smo se odločili, ker gre za
-                osebne podatke, za
-                katere ne prevzemamo odgovornosti in ki so v tem primeru zapisani samo v
-                vašem brskalniku. PDF datoteka se sicer pripravi na serverju, vendar pa
-                se podatki na serverju ne zapisujejo na kakršenkoli medij.
+                    target="_blank">IndexedDB API </a>). PDF/ZIP datoteka se sicer pripravi na
+                serverju,
+                vendar pa se podatki na serverju ne shranujejo na kakršenkoli medij.
             </p>
             <p>
-                Ker IndexedDB ne razume, da je "www.potep.in" in "potep.in" isti server,
-                pa to včasih povzroča težave, saj baza kar naenkrat "izgine". Torej
+                Ker so podatki v IndexedDB v vašem brskalniku, to pomeni, da uporabljajte vedno isti
+                brskalnik, saj se podatki med brskalniki ne prenašajo. Prav tako je potrebno paziti
+                na "www" zapis pred imenom domene "potep.in". "www.potep.in" in "potep.in" za
+                IndexedDB ni isti server, IndexedDB pa shranjuje glede na ime serverja. V
+                kolikor ne pazite na to, to povzroča težave, saj baza kar naenkrat "izgine". Torej
                 pazite, da <strong>delate vedno</strong> ali na
                 <strong>"potep.in/upnqr"</strong> ali na
                 <strong>"www.potep.in/upnqr"</strong> naslovu.
@@ -58,7 +60,8 @@
                     tiskalnikom s podajalnikom). V programu, v katerem pregledujete PDF
                     dokument,
                     <u style="color: blueviolet">morate imeti pri tiskanju v razdelku velikost
-                        papirja izbrano opcijo "Dejanska velikost papirja" oziroma v nekaterih programih povečavo "100%" .</u>
+                        papirja izbrano opcijo "Dejanska velikost papirja" oziroma v nekaterih
+                        programih povečavo "100%" .</u>
                 </strong>
             </p>
             <h3>Sklic - izračun kontrolne številke</h3>
@@ -84,9 +87,9 @@
                 pisalo
             </p>
             <p>
-                Dve ali več vrstic urejamo tako, da jih najprej izberemo in nato
-                kliknemo pisalo pod naslovom posamezne stolpca, pri tem se vpišejo enaki
-                podatki pri vseh izbranih vrsticah. Izjema je v primeru reference SI12,
+                Dve ali več vrstic urejamo tako, da jih najprej izberemo, in nato
+                kliknemo pisalo pod naslovom posamezne stolpca. Pri tem se vpišejo enaki
+                podatki pri vseh izbranih vrsticah. Kot rečeno, izjema je v primeru reference SI12,
                 kjer se na koncu števila doda ena cifra kot kontrolna vsota.
             </p>
             <p>
@@ -101,24 +104,30 @@
                 <li>referenco in</li>
                 <li>prejemnika.</li>
             </ul>
+            <p>Plačnika naknadno ne moremo spreminjati, lahko ga le izbrišemo in ponovno vnesemo.
+            </p>
             <h3>Izvoz podatkov</h3>
-            <p>Izvoz podatkov prenese izbrane vrstice v CSV (z vejicami ločene vrednosti) datoteko.</p>
+            <p>Gumb "Izvozi" prenese izbrane vrstice v CSV datoteko (z vejicami ločene vrednosti).
+            </p>
             <h3 id="uvoz">Uvoz podatkov</h3>
             <p>
                 Podatke lahko uvozimo preko odložišča. Predlagamo, da najprej dodate v
-                tabelo vsaj en zapis, nato pa podatke izvozite. V programu za urejanje
-                tabele podatke nato uvozite, dopolnite in kopirate preko odložišča.
+                tabelo vsaj en zapis, nato pa podatke izvozite, da boste videli strukturo podatkov.
+                V program za urejanje
+                tabel podatke nato uvozite, dopolnite in kopirate preko odložišča nazaj v program
+                "Univerzalni plačilni nalogi - UPN QR program".
             </p>
             <p>
                 Podatki za uvoz se morajo držati pravil glede dolžine polj in oblike
-                zapisa. Če na začetni strani kliknete gumb "Dodaj", se vam bo v
+                zapisa. Če na <a href="./">začetni strani</a> kliknete gumb "Dodaj", se vam bo v
                 pogovornem oknu tudi izpisalo v kakšni obliki morajo biti ti podatki.
             </p>
             <p>
                 Podatki morajo biti pripravljeni tako, da so števila v
                 obliki 0,00 (decimalno ločilo je vejica). Naslovna vrstica mora imeti
                 imena stolpcev, poimenovani pa morajo biti tako, kot so poimenovani v
-                tabeli na začetni strani. Stolpci v tabeli za uvoz so (v <strong>krepko</strong> so
+                tabeli na <a href="./">začetni strani</a>. Stolpci v tabeli za uvoz so (v
+                <strong>krepko</strong> so
                 zapisana imena stolpcev):
             </p>
             <ul>
@@ -128,7 +137,8 @@
                     grupiranju podatkov s pomočjo filtra</li>
                 <li><strong>Znesek</strong> - številka, decimalno mesto: vejica, oznaka tisočic:
                     pika - obvezno polje</li>
-                <li><strong>Koda namen</strong> - štirje znaki, v skladu z normativi bank - obvezno
+                <li><strong>Koda namen</strong> - 4 znaki, velike črke, v skladu z normativi bank -
+                    obvezno
                     polje</li>
                 <li><strong>Namen plačila</strong> - največ 42 znakov - obvezno polje</li>
                 <li><strong>TRR</strong> - v skadu z normativi bank za številko transakcijskega
@@ -139,6 +149,8 @@
                     vejicami, največ 32 znakov/ polje, skupaj (z vejicami) 98 znakov - obvezno polje
                 </li>
             </ul>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </div>
     </div>
 </div>

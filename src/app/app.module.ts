@@ -25,6 +25,7 @@ import { TableComponent } from './components/table/table.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HelpComponent } from './components/help/help.component';
 import { UpnqrComponent } from './components/upnqr/upnqr.component';
+import { PravnoComponent } from './components/pravno/pravno.component';
 
 registerLocaleData(localeSl, 'sl');
 @NgModule({
@@ -33,7 +34,8 @@ registerLocaleData(localeSl, 'sl');
     TableComponent,
     PageNotFoundComponent,
     HelpComponent,
-    UpnqrComponent
+    UpnqrComponent,
+    PravnoComponent
   ],
   imports: [
     BrowserModule,

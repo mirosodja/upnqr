@@ -7,3 +7,25 @@ a:link, :visited {
     background-color: transparent;
     text-decoration: none;
 }
+
+.h1-opis {
+    font-size: 16px;
+    color: #3e1f69;
+}
+
+.first-row-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 50px;
+    grid-template-areas:
+        ". .";
+        grid-template-columns: 60% 35%;
+}
+
+.aligned-right {
+    text-align: right;
+    padding-right: 30px;
+    font-weight: bold;
+    font-style: oblique;
+}

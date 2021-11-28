@@ -1,4 +1,4 @@
-<h2>Seznam za naloge</h2>
+<h3>Seznam za naloge</h3>
 <h4>
     Selected: {{ selectedOsebas?.length }} / Filtered:
     {{ dt.filteredValue?.length || 0 }} / Total: {{ osebas?.length }} records.
@@ -36,14 +36,14 @@
             </div>
             <div class="col-1">&nbsp;</div>
             <div class="col-2 pastediv" style="border:solid;" (paste)="data($event)" tabindex="-1">
-                Klikni tu za lepljenje podatkov v tabelo, nato Ctrl+V
+                Klikni tu za lepljenje podatkov iz odložišča, nato Ctrl+V
             </div>
             <div class="col-1"></div>
             <div class="col-2"><i class="pi pi-times" pTooltip="Počisti filter"
                     (click)="resetFilter()"></i>
-                <input name="dt22" [(ngModel)]="dt22" type="text" pInputText size="30"
-                    placeholder="Global Filter on Plačnik&Skupina"
-                    (input)="applyFilterGlobal($event, 'contains')" style="width: auto;" />
+                <input name="dt22" [(ngModel)]="dt22" type="text" pInputText size="16"
+                    placeholder="Filter Plačnik/Skupina"
+                    (input)="applyFilterGlobal($event, 'contains')" />
             </div>
         </div>
     </ng-template>

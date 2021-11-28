@@ -108,12 +108,7 @@ export class TableComponent implements OnInit {
           row = value.split('\t');
           row.forEach((value, key) => {
             if (this.cols[key].field == 'znesek') {
-              if (value != "") {
-                value = parseFloat(value.replace(/\./g, '').replace(',', '.')).toString();
-              }
-              else {
-                value = "0.00"
-              }
+              value = parseFloat(value.replace(/\./g, '').replace(',', '.')).toString();
               if (isNaN(+value)) {
                 value = "0.00"
               }
@@ -282,7 +277,7 @@ export class TableComponent implements OnInit {
       severity: 'info',
       summary: 'O piškotkih',
       detail:
-        'Analitičnih piškotkov ne uporabljamo. V brskalnik zabeležimo prvi obisk.<br /><br />Uporabljamo IndexedDB, zato so vsi podatki na vašem računalniku.<br /><br />Več si preberite v <a href="./help"><b>Help</b></a>',
+        'Analitičnih piškotkov ne uporabljamo. V brskalnik zabeležimo prvi obisk.<br /><br />Podatki so shranjeni v IndexedDB v vašem brskalniku.<br /><br />Več v <a href="./help"><b>Help</b></a>',
       closable: true,
       life: 20000,
     });
