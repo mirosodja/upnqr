@@ -10,8 +10,9 @@ import { Oseba } from '../_models/oseba';
   providedIn: 'root'
 })
 export class DataService {
-  // private baseUrl = '../crud/upn_services/';
-  private baseUrl = 'http://localhost:5000/crud/upn_services/';
+  private baseUrl = '../api-upnqr/';
+  // private baseUrl = 'http://localhost:5000/api-upnqr/';
+  // private baseUrl = 'https://potep.in/api-upnqr/';
   constructor(private http: HttpClient) {
   }
 

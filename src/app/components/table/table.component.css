@@ -1,15 +1,22 @@
 .p-button {
-    margin: 3px;
-    ;
+  margin: 3px;
 }
 
 .pastediv {
-    outline: 1px solid hsl(320, 80%, 80%);
+  outline: 1px solid hsl(320, 80%, 80%);
 }
 .pastediv:focus {
-    outline: 2px solid hsl(120, 60%, 40%);
+  outline: 2px solid hsl(120, 60%, 40%);
 }
 
 label {
-    margin: 3px 3px 5px 3px;
+  margin: 3px 3px 5px 3px;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

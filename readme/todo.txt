@@ -7,3 +7,5 @@
 	- opozori na problem z zip za več datotek
 => table.component:
 	kadar so v referenci vezaji izpiše NaN, vendar samo, če jih urejaš več <= preveri funkcijo
+=> pazi napaka zneska na pdf, če več kot 100.000 EUR
+=> pazi, popravi uvoz, kadar niso številke

@@ -26,10 +26,11 @@
                     (click)="invertSelectedOsebas()"></button>
                 <button pButton pRipple label="Izvozi" icon="pi pi-download"
                     (click)="dt.exportCSV({ selectionOnly: true })"
-                    [disabled]="!selectedOsebas?.length" pTooltip="Izvozi v CSV datoteko" tooltipPosition="bottom"></button>
-                <button pButton pRipple label="Upnqr" icon="pi pi-book" pTooltip="Pripravi UPN QR naloge"
-                    tooltipPosition="bottom" [disabled]="!selectedOsebas?.length"
-                    [routerLink]="['/upnqr']"></button>
+                    [disabled]="!selectedOsebas?.length" pTooltip="Izvozi v CSV datoteko"
+                    tooltipPosition="bottom"></button>
+                <button pButton pRipple label="Upnqr" icon="pi pi-book"
+                    pTooltip="Pripravi UPN QR naloge" tooltipPosition="bottom"
+                    [disabled]="!selectedOsebas?.length" [routerLink]="['/upnqr']"></button>
                 <button pButton pRipple label="Help" icon="pi pi-question" pTooltip="Pomoč"
                     tooltipPosition="bottom" [routerLink]="['/help']"></button>
             </div>
@@ -47,7 +48,7 @@
         </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
-        <tr>
+        <tr class="unselectable">
             <th style="width: 3em">
                 <p-tableHeaderCheckbox (click)="onRowSelect()"></p-tableHeaderCheckbox>
             </th>
@@ -62,10 +63,10 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex+1">
         <tr [pSelectableRow]="rowData">
-            <td>
+            <td class="unselectable">
                 <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
             </td>
-            <td>
+            <td class="unselectable">
                 {{ rowIndex }}&nbsp;&nbsp;<i class="pi pi-pencil" (click)="onRowEdit(rowData)"
                     *ngIf="selectedOsebas?.length === 0"></i>
             </td>
@@ -80,7 +81,7 @@
             {{ state.first }}
         </ng-template>
     </ng-template>
-    <ng-template pTemplate="summary">
+    <ng-template pTemplate="summary" class="unselectable">
         Selected: {{ selectedOsebas?.length }} / Filtered:
         {{ dt.filteredValue?.length || 0 }} / Total: {{ osebas?.length }} records.
     </ng-template>
@@ -175,9 +176,11 @@
                     <div class="p-col-12 p-md-10"
                         *ngIf="znesek.invalid && (znesek.dirty || znesek.touched)">
                         <p-message *ngIf="znesek.errors!.maxlength" severity="warn"
-                            text="Največ 999.999,99"></p-message>
+                            text="Največ 999.999,99">
+                        </p-message>
                         <p-message *ngIf="znesek.errors!.pattern" severity="warn"
-                            text="Znesek v obliki ###.###,##"></p-message>
+                            text="Znesek v obliki ###.###,##">
+                        </p-message>
                     </div>
                 </div>
                 <!-- !END znesek -->
@@ -237,7 +240,8 @@
                     <div class="p-col-12 p-md-10"
                         *ngIf="prejemnik_referenca.invalid && (prejemnik_referenca.dirty || prejemnik_referenca.touched)">
                         <p-message *ngIf="prejemnik_referenca.errors!.minlength" severity="warn"
-                            text="Vsaj 8 znakov!"></p-message>
+                            text="Vsaj 8 znakov!">
+                        </p-message>
                         <p-message *ngIf="prejemnik_referenca.errors!.pattern" severity="warn"
                             text="Oblika SI/RF## in številčni znaki z vezaji. SI12 dolžina max. 17 zankov.">
                         </p-message>

@@ -26,7 +26,7 @@ export class TableComponent implements OnInit {
   selectedOseba: Oseba | undefined; // izbrana oseba, ki jo urejam
   selectedOsebas: Oseba[] = []; // izbrana populacija v tabeli
 
-  dt22 = '';
+  dt22: string = '';
   @ViewChild('dt')
   private table: Table | undefined;
 
@@ -108,12 +108,23 @@ export class TableComponent implements OnInit {
           row = value.split('\t');
           row.forEach((value, key) => {
             if (this.cols[key].field == 'znesek') {
-              value = parseFloat(value.replace(/\./g, '').replace(',', '.')).toString();
+              if (value != "") {
+                value = parseFloat(value.replace(/\./g, '').replace(',', '.')).toString();
+              }
+              else {
+                value = "0.00"
+              }
+              if (isNaN(+value)) {
+                value = "0.00"
+              }
             }
             rowObject = _.fromPairs([[this.cols[key].field, value]]);
             data.push(rowObject);
           });
           oseba = Object.assign({}, ...data);
+          // if (!oseba.znesek) {
+          //   oseba.znesek = 0.00;
+          // }
           this.insertNewRecord(oseba);
         });
       }
