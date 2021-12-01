@@ -8,8 +8,8 @@
             <ul>
                 <li>je namenjen vnosu podatkov o posameznem nalogu (gumb "Dodaj") ali prenosu iz
                     drugega programa preko odložišča(gumb "Klikni tu...").
-                    Stuktura podatkov je razvidna v poglavju <a [routerLink]="['/help']"
-                        fragment="uvoz">"Uvoz podatkov"</a>,</li>
+                    Stuktura podatkov je razvidna v poglavju <a [routerLink]="['/help']" fragment="uvoz">"Uvoz
+                        podatkov"</a>,</li>
                 <li>pripravi pdf datoteke za izpis položnic na printer (gumb "Upnqr" in nato "Prenos
                     PDF")
                     (obvezno preberi razdelek: <strong>Tiskanje - važno</strong>),</li>
@@ -38,8 +38,8 @@
             <p>
                 Baza podatkov je v klientovem (vašem) brskalniku, uporabljen je t.i.
                 IndexedDB API (več:
-                <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API"
-                    target="_blank">IndexedDB API </a>). PDF/ZIP datoteka se sicer pripravi na
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank">IndexedDB API
+                </a>). PDF/ZIP datoteka se sicer pripravi na
                 serverju,
                 vendar pa se podatki na serverju ne shranujejo na kakršenkoli medij.
             </p>
@@ -69,7 +69,8 @@
                 Program izračunava samo kontrolno vsoto za model SI12 in sicer tako, da
                 zapisom v izboru prišteva +1. Priporočljivo je dati "govorečo kodo",
                 primer LLLLMMDDID (npr.: 2021022801 - max 12 številk) za primer, ko je
-                UPN nalog bil tiskan 28. februarja 2021 z id= 01.
+                UPN nalog bil tiskan 28. februarja 2021 z id= 01 (202102280 = 2021 - leto + 02 - mesec + 28 - dan v
+                mesecu + 01 - id).
             </p>
             <p>
                 <strong>Za ostale model (npr.: SI00, SI99) program ne izračunava kontrolne
@@ -132,7 +133,10 @@
             </p>
             <ul>
                 <li><strong>Plačnik</strong> - Ime Priimek, Ulica HŠ, PŠ Pošta - ločeno z vejicami,
-                    največ 32 znakov/ polje, skupaj (z vejicami) 98 znakov - obvezno polje</li>
+                    največ 32 znakov/ polje, skupaj (z vejicami) 98 znakov - obvezno polje [v kolikor imate v Excelu ali
+                    podobnem programu te podatke v več celicah, lahko uporabite znak "&" za seštevanje teksta. Primer:
+                    ko imate podatke v celicah A2, B2 in C2, potem v celico D2 vpišete '=A2&", "&B2&", "&C2' (brez
+                    enojnih narekovajev]</li>
                 <li><strong>Skupina</strong> - največ 20 znakov - neobvezno polje, namenjeno
                     grupiranju podatkov s pomočjo filtra</li>
                 <li><strong>Znesek</strong> - številka, decimalno mesto: vejica, oznaka tisočic:

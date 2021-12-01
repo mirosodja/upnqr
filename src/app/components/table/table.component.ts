@@ -117,10 +117,9 @@ export class TableComponent implements OnInit {
             data.push(rowObject);
           });
           oseba = Object.assign({}, ...data);
-          // if (!oseba.znesek) {
-          //   oseba.znesek = 0.00;
-          // }
-          this.insertNewRecord(oseba);
+          this.osebas.splice(this.osebas.length, 0, oseba);
+          // this.osebas.splice(0, 0, oseba);
+          this.writeOrUpdateRecord(oseba);
         });
       }
     }
@@ -139,9 +138,8 @@ export class TableComponent implements OnInit {
     this.messageService.add({ key: 'error_clipboard', severity: 'error', summary: 'Error', detail: 'Napaka pri vstavljanju podatkov - ni 8 kolon!' });
   }
 
-  //!  insertNewRecord
-  insertNewRecord(oseba: Oseba): void {
-    this.osebas.splice(0, 0, oseba);
+  //!  writeOrUpdateRecord
+  writeOrUpdateRecord(oseba: Oseba): void {
     this.storageMap
       .set(oseba.imePlacnik, oseba)
       .subscribe(() => { });
@@ -332,15 +330,11 @@ export class TableComponent implements OnInit {
     // insert record
     if (this.newOseba) {
       osebas.splice(0, 0, this.oseba!);
-      this.storageMap
-        .set(this.oseba!.imePlacnik, this.oseba)
-        .subscribe(() => { });
-      // udpate record
+      this.writeOrUpdateRecord(this.oseba)
+      // update record
     } else {
       osebas[this.osebas.indexOf(this.selectedOseba!)] = this.oseba!;
-      this.storageMap
-        .set(this.oseba!.imePlacnik, this.oseba)
-        .subscribe(() => { });
+      this.writeOrUpdateRecord(this.oseba)
     }
 
     this.osebas = osebas;

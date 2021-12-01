@@ -1,1 +1,2 @@
+=> pazi!!!!! Si popravil v data.service na pravi server za pripravo PDF
 ng build upnqr --base-href=/upnqr/ --aot=true --build-optimizer=true

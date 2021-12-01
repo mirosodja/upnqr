@@ -1,11 +1,2 @@
-=> help.component: 
-	- opozori, da so v csv datoteki ločila, ko uvoziš v excel vejice
-	- opozori na strukturo podatkov
-	- povej kako se v excel uvozi CSV datoteka
-	- popravi link "upn" na "upnqr"
-	- tiskanje: povej glede "dejanska velikost" (tudi 100% recimo v edge-u)
-	- opozori na problem z zip za več datotek
-=> table.component:
-	kadar so v referenci vezaji izpiše NaN, vendar samo, če jih urejaš več <= preveri funkcijo
-=> pazi napaka zneska na pdf, če več kot 100.000 EUR
-=> pazi, popravi uvoz, kadar niso številke
+=> table.component
+	- insertRecord popravi na writeRecord in potem kliči samo to funkcijo
