@@ -1,4 +1,4 @@
-# 'user' should be replaced with username, 'port' should be replaced with port number
+#! 'user' should be replaced with username, 'port' should be replaced with port number
 [Unit]
 Description=UPNQR_service - Gunicorn instance to serve upnqr backend
 After=network.target
