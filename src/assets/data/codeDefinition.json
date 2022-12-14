@@ -1,0 +1,1115 @@
+[
+  {
+    "Id": 1,
+    "Koda": "ACCT",
+    "Definicija": "Prenos sredstev med računoma istega imetnika znotraj banke",
+    "Klasifikacija": "Upravljanje denarnih sredstev - znotraj banke",
+    "Classification": "AccountManagement"
+  },
+  {
+    "Id": 2,
+    "Koda": "ADVA",
+    "Definicija": "Plačilo predplačila / avansa",
+    "Klasifikacija": "Plačilo vnaprej / predplačilo",
+    "Classification": "AdvancePayment"
+  },
+  {
+    "Id": 3,
+    "Koda": "ADMG",
+    "Definicija": "Plačilo administrativnih storitev (npr vstopnine, dostopi, vpisi, registracije, zakupi, najemi, različne članarine)",
+    "Klasifikacija": "Administrativne storitve",
+    "Classification": "AdministrativeManagement"
+  },
+  {
+    "Id": 4,
+    "Koda": "AEMP",
+    "Definicija": "Plačila iz naslova aktivne politike zaposlovanja, kot so plačila storitev, subvencije za samozaposlitev ali zaposlitev, povračila stroškov, nadomestila za plače, denarne dajatve (dodatek za aktivnost, dodatek za prevoz)",
+    "Klasifikacija": "Aktivna politika zaposlovanja",
+    "Classification": "ActiveEmploymentPolicy"
+  },
+  {
+    "Id": 5,
+    "Koda": "AGRT",
+    "Definicija": "Pomoči države oziroma državnih organov za odpravo posledic naravnih nesreče, nadomestila zaradi neugodnih pogojev kmetovanja. Plačilo povezano s kmetijsko dejavnostjo, ekološka nadomestila",
+    "Klasifikacija": "Plačilo v kmetijstvu",
+    "Classification": "AgriculturalTransfer"
+  },
+  {
+    "Id": 6,
+    "Koda": "AIRB",
+    "Definicija": "Plačilo za storitve, povezane z letalskim transportom, prevozom blaga, letalskih vozovnic",
+    "Klasifikacija": "Zračni prevoz",
+    "Classification": "Air"
+  },
+  {
+    "Id": 7,
+    "Koda": "ALLW",
+    "Definicija": "Izplačilo denarnega nadomestila s strani Zavoda za zaposlovanje in Zavoda za zdravstveno zavarovanje neposredno upravičencu",
+    "Klasifikacija": "Nadomestila",
+    "Classification": "Allowance"
+  },
+  {
+    "Id": 8,
+    "Koda": "ALMY",
+    "Definicija": "Plačilo preživnine, rejnine, invalidnine, alimentov, denarnih dodatkov za preživljanje, sodni sklepi za preživnine",
+    "Klasifikacija": "Preživnina",
+    "Classification": "AlimonyPayment"
+  },
+  {
+    "Id": 9,
+    "Koda": "ANNI",
+    "Definicija": "Plačilo anuitete (kredit, zavarovanje, naložba)",
+    "Klasifikacija": "Plačilo obroka kredita / zavarovanja",
+    "Classification": "Annuity"
+  },
+  {
+    "Id": 10,
+    "Koda": "ANTS",
+    "Definicija": "Plačilo storitev anestezije",
+    "Klasifikacija": "Storitve anestezije",
+    "Classification": "AnesthesiaServices"
+  },
+  {
+    "Id": 11,
+    "Koda": "AREN",
+    "Definicija": "Plačilo povezano z vnosom / vpisom terjatev",
+    "Klasifikacija": "Vnos / vpis terjatev",
+    "Classification": "Accounts Receivables Entry"
+  },
+  {
+    "Id": 12,
+    "Koda": "BBSC",
+    "Definicija": "Nakazilo spodbude za rojstvo otroka, dodatek za veliko družino, pomoč za opremo novorojenca",
+    "Klasifikacija": "Spodbuda za rojstvo otroka",
+    "Classification": "Baby Bonus Scheme"
+  },
+  {
+    "Id": 13,
+    "Koda": "BECH",
+    "Definicija": "Otroški dodatek, dodatek za nego, starševski dodatek, pomoč za opremo novorojenca, dodatek za veliko družino",
+    "Klasifikacija": "Otroški dodatek",
+    "Classification": "ChildBenefit"
+  },
+  {
+    "Id": 14,
+    "Koda": "BENE",
+    "Definicija": "Prejemki iz naslova začasne brezposelnosti, plačila za delo obsojencev v kazenskih zavodih, denarno nadomestilo, sredstva iz naslova aktivne politike zaposlovanja, plačila za delo med rehabilitacijo, starševsko nadomestilo",
+    "Klasifikacija": "Podpora za brezposelne / invalide",
+    "Classification": "UnemploymentDisabilityBenefit"
+  },
+  {
+    "Id": 15,
+    "Koda": "BEXP",
+    "Definicija": "Plačilo poslovnih izdatkov (reprezentanca, službena potovanja, kilometrina, dnevnice, kotizacija, nočnina)",
+    "Klasifikacija": "Poslovni izdatki",
+    "Classification": "BusinessExpenses"
+  },
+  {
+    "Id": 16,
+    "Koda": "BOCE",
+    "Definicija": "Plačilo, povezano z vnosom konverzije (preračuna) v zaledju",
+    "Klasifikacija": "Vnos / vpis konverzije v zaledju",
+    "Classification": "Back Office Conversion Entry"
+  },
+  {
+    "Id": 17,
+    "Koda": "BONU",
+    "Definicija": "Regres, odpravnina, jubilejna nagrada, pogodbeno delo, rente, priznavalnina, podjemna pogodba, študentsko delo, avtorski honorar, sejnina, nagrada, plačilo vojnim veteranom",
+    "Klasifikacija": "Bonus plačilo",
+    "Classification": "BonusPayment"
+  },
+  {
+    "Id": 18,
+    "Koda": "BLDM",
+    "Definicija": "Plačilo za vzdrževanje nepremičnin (npr: redno vzdrževanje dvigal, tekočih stopnic, ogrevanje, vodovodne napeljave, klimatski sistem)",
+    "Klasifikacija": "Vzdrževanje zgradb",
+    "Classification": "BuildingMaintenance"
+  },
+  {
+    "Id": 19,
+    "Koda": "BUSB",
+    "Definicija": "Plačilo za storitve povezane z avtobusnim transportom, avtobusne vozovnice",
+    "Klasifikacija": "Avtobusni transport",
+    "Classification": "Bus"
+  },
+  {
+    "Id": 20,
+    "Koda": "CAFI",
+    "Definicija": "Plačilo provizije za upravljanje skrbniškega računa v primeru, ko sovpadata skrbniška banka in banka, ki vodi transakcijski račun",
+    "Klasifikacija": "Interna provizija za upravljanje skrbniškega računa",
+    "Classification": "CustodianManagement Fee In-house"
+  },
+  {
+    "Id": 21,
+    "Koda": "CASH",
+    "Definicija": "Upravljanje denarnih sredstev, prenos sredstev na drugo banko",
+    "Klasifikacija": "Upravljanje denarnih sredstev - med bankami",
+    "Classification": "CashManagementTransfer"
+  },
+  {
+    "Id": 22,
+    "Koda": "CBFF",
+    "Definicija": "Varčevanje za prihodnost oz. upokojitev (pokojninski steber), transakcije v zvezi z vplačili / izplačili v / iz sklade za pokojninsko varčevanje, vplačila / izplačila v zvezi z dodatno pokojnino",
+    "Klasifikacija": "Pokojninski skladi, varčevanje",
+    "Classification": "CapitalBuilding"
+  },
+  {
+    "Id": 23,
+    "Koda": "CBLK",
+    "Definicija": "Poravnava denarja za sveženj kartičnih transakcij",
+    "Klasifikacija": "Kliring svežnja kartic",
+    "Classification": "CardBulkClearing"
+  },
+  {
+    "Id": 24,
+    "Koda": "CBTV",
+    "Definicija": "Plačilo računa za kabelsko TV",
+    "Klasifikacija": "Račun za kabelsko TV",
+    "Classification": "CableTVBill"
+  },
+  {
+    "Id": 25,
+    "Koda": "CCRD",
+    "Definicija": "Plačilo s kreditno kartico",
+    "Klasifikacija": "Plačilo s kreditno kartico",
+    "Classification": "CreditCardPayment"
+  },
+  {
+    "Id": 26,
+    "Koda": "CDBL",
+    "Definicija": "Plačilo računa za kreditno kartico",
+    "Klasifikacija": "Plačilo računa za kreditno kartico",
+    "Classification": "CreditCardBill"
+  },
+  {
+    "Id": 27,
+    "Koda": "CDCB",
+    "Definicija": "Nakup blaga in storitev z dodatno možnostjo izplačila gotovine na prodajnem mestu (vračilo gotovine)",
+    "Klasifikacija": "Kartična plačila z gotovinskim vračilom",
+    "Classification": "CardPayment with Cashback"
+  },
+  {
+    "Id": 28,
+    "Koda": "CDCD",
+    "Definicija": "Dvig gotovine na bankomatu ali bančnem okencu",
+    "Klasifikacija": "Kartično izplačilo",
+    "Classification": "Card disbursement"
+  },
+  {
+    "Id": 29,
+    "Koda": "CDCS",
+    "Definicija": "Dvig gotovine na bankomatu ali bančnem okencu s sočasno avtorizacijo dodatnih stroškov",
+    "Klasifikacija": "Kartično izplačilo z dodatnimi stroški",
+    "Classification": "Cash Disbursement with Surcharging"
+  },
+  {
+    "Id": 30,
+    "Koda": "CDDP",
+    "Definicija": "Avtorizacija za začasen znesek in kompletiranje dokončnega zneska v omejenem časovnem okviru za sprejemnika kartice",
+    "Klasifikacija": "Odloženo plačilo s kartico",
+    "Classification": "CardDeferredPayment"
+  },
+  {
+    "Id": 31,
+    "Koda": "CDOC",
+    "Definicija": "Izplačilo dobitka na prodajnem mestu pri igrah na srečo na račun imetnika plačilne kartice.",
+    "Klasifikacija": "Originalna odobritev",
+    "Classification": "Original Credit"
+  },
+  {
+    "Id": 32,
+    "Koda": "CDQC",
+    "Definicija": "Nakup blaga, ki je enakovreden gotovini (igralniški žetoni)",
+    "Klasifikacija": "Navidezna gotovina",
+    "Classification": "Quasi Cash:"
+  },
+  {
+    "Id": 33,
+    "Koda": "CFDI",
+    "Definicija": "Plačilo za zmanjšanje osnovnega kapitala v primeru, ko sovpadata skrbniška banka in banka, ki vodi transakcijski račun",
+    "Klasifikacija": "Interno zmanjšanje osnovnega kapitala",
+    "Classification": "CapitalFalling Due In-house"
+  },
+  {
+    "Id": 34,
+    "Koda": "CFEE",
+    "Definicija": "Plačilo stroškov preklica, odpovedi",
+    "Klasifikacija": "Stroški preklica",
+    "Classification": "CancellationFee"
+  },
+  {
+    "Id": 35,
+    "Koda": "CHAR",
+    "Definicija": "Plačilo v dobrodelne namene, solidarna pomoč, humanitarna plačila",
+    "Klasifikacija": "Dobrodelno plačilo",
+    "Classification": "CharityPayment"
+  },
+  {
+    "Id": 36,
+    "Koda": "CLPR",
+    "Definicija": "Plačilo glavnice avtomobilskega posojila",
+    "Klasifikacija": "Plačilo avtomobilskega kredita",
+    "Classification": "CarLoanPrincipalRepayment"
+  },
+  {
+    "Id": 37,
+    "Koda": "CMDT",
+    "Definicija": "Surovine",
+    "Klasifikacija": "Plačilo blaga",
+    "Classification": "CommodityTransfer"
+  },
+  {
+    "Id": 38,
+    "Koda": "COLL",
+    "Definicija": "Zbiranje sredstev na podlagi kreditnega plačila ali direktne obremenitve",
+    "Klasifikacija": "Nalog za izvršitev plačila",
+    "Classification": "CollectionPayment"
+  },
+  {
+    "Id": 39,
+    "Koda": "COMC",
+    "Definicija": "Plačilo komercialnega kredita oz. dolga",
+    "Klasifikacija": "Komercialno plačilo",
+    "Classification": "CommercialPayment"
+  },
+  {
+    "Id": 40,
+    "Koda": "COMM",
+    "Definicija": "Plačilo provizije (opravnine)",
+    "Klasifikacija": "Plačilo provizije",
+    "Classification": "Commission"
+  },
+  {
+    "Id": 41,
+    "Koda": "COMT",
+    "Definicija": "Plačilo tretje osebe, ki lahko zbira sredstva za plačilo v imenu potrošnikov, (npr. svetovalne kreditne družbe oz. družbe za plačevanje računov)",
+    "Klasifikacija": "Konsolidirano plačilo tretje stranke za potrošnika",
+    "Classification": "ConsumerThirdPartyConsolidatedPayment"
+  },
+  {
+    "Id": 42,
+    "Koda": "COST",
+    "Definicija": "Plačilo različnih vrst stroškov",
+    "Klasifikacija": "Stroški",
+    "Classification": "Costs"
+  },
+  {
+    "Id": 43,
+    "Koda": "CPCK",
+    "Definicija": "Plačilo parkirnine",
+    "Klasifikacija": "Parkirnina",
+    "Classification": "Carpark Charges"
+  },
+  {
+    "Id": 44,
+    "Koda": "CPYR",
+    "Definicija": "Plačilo avtorske pravice",
+    "Klasifikacija": "Avtorska pravica",
+    "Classification": "Copyright"
+  },
+  {
+    "Id": 45,
+    "Koda": "CSDB",
+    "Definicija": "Izplačilo denarnih sredstev (gotovina)",
+    "Klasifikacija": "Denarno izplačilo",
+    "Classification": "CashDisbursement"
+  },
+  {
+    "Id": 46,
+    "Koda": "CSLP",
+    "Definicija": "Plačilo podjetja banki za financiranje socialnih posojil zaposlenim",
+    "Klasifikacija": "Plačilo socialnega posojila banki",
+    "Classification": "CompanySocialLoanPaymentToBank"
+  },
+  {
+    "Id": 47,
+    "Koda": "CVCF",
+    "Definicija": "Plačilo pripomočkov za okrevajoče",
+    "Klasifikacija": "Pripomočki za okrevajoče",
+    "Classification": "ConvalescentCareFacility"
+  },
+  {
+    "Id": 48,
+    "Koda": "DBTC",
+    "Definicija": "Plačilo na podlagi debetnega naloga, plačilo po vseh sklepih o izvršbah, razen sodnih za preživnino",
+    "Klasifikacija": "Debetno plačilo",
+    "Classification": "DebitCollectionPayment"
+  },
+  {
+    "Id": 49,
+    "Koda": "DCRD",
+    "Definicija": "Plačilo z debetno kartico",
+    "Klasifikacija": "Plačilo z debetno kartico",
+    "Classification": "Debit Card Payment"
+  },
+  {
+    "Id": 50,
+    "Koda": "DEPT",
+    "Definicija": "Vplačilo depozita",
+    "Klasifikacija": "Depozit",
+    "Classification": "Deposit"
+  },
+  {
+    "Id": 51,
+    "Koda": "DERI",
+    "Definicija": "Izvedeni finančni instrumenti",
+    "Klasifikacija": "Derivativi",
+    "Classification": "Derivatives"
+  },
+  {
+    "Id": 52,
+    "Koda": "DIVD",
+    "Definicija": "Izplačilo dividend",
+    "Klasifikacija": "Dividenda",
+    "Classification": "Dividend"
+  },
+  {
+    "Id": 53,
+    "Koda": "DMEQ",
+    "Definicija": "Plačilo za uporabo trajne medicinske opreme",
+    "Klasifikacija": "Medicinska oprema",
+    "Classification": "DurableMedicaleEquipment"
+  },
+  {
+    "Id": 54,
+    "Koda": "DNTS",
+    "Definicija": "Plačilo zobozdravstvenih storitev",
+    "Klasifikacija": "Zobozdravstvene storitve",
+    "Classification": "DentalServices"
+  },
+  {
+    "Id": 55,
+    "Koda": "EDUC",
+    "Definicija": "Plačilo izobraževanja",
+    "Klasifikacija": "Izobraževanje",
+    "Classification": "Education"
+  },
+  {
+    "Id": 56,
+    "Koda": "ELEC",
+    "Definicija": "Plačilo računa za električno energijo",
+    "Klasifikacija": "Račun za elektriko",
+    "Classification": "ElectricityBill"
+  },
+  {
+    "Id": 57,
+    "Koda": "ENRG",
+    "Definicija": "Plačilo energije",
+    "Klasifikacija": "Energetika",
+    "Classification": "Energies"
+  },
+  {
+    "Id": 58,
+    "Koda": "ESTX",
+    "Definicija": "Plačilo davka na nepremičnine (odmera NUSZ, davek na promet nepremičnin, dohodnina ob prodaji, DDV ob nakupu nove nepremičnine)",
+    "Klasifikacija": "Davek na nepremičnine",
+    "Classification": "EstateTax"
+  },
+  {
+    "Id": 59,
+    "Koda": "ETUP",
+    "Definicija": "Plačilo storitve, ki omogoča najprej rezervacijo sredstev na kartičnem računu, kateri sledi polnitev e-denarnice s tem zneskom",
+    "Klasifikacija": "E-denarnica",
+    "Classification": "E-Purse Top up"
+  },
+  {
+    "Id": 60,
+    "Koda": "FAND",
+    "Definicija": "Pomoči države oz. državnih organov za odpravo posledic naravnih nesreč, nadomestila zaradi neugodnih pogojev kmetovanja",
+    "Klasifikacija": "Finančna pomoč državnih organov in lokalnih skupnosti za odpravo posledic naravnih nesreč",
+    "Classification": "FinancialAidInCaseOfNaturalDisaster"
+  },
+  {
+    "Id": 61,
+    "Koda": "FCPM",
+    "Definicija": "Plačilo zamudnih obresti in stroškov (npr. stroški kartičnega poslovanja)",
+    "Klasifikacija": "Zamudne obresti in stroški",
+    "Classification": "Late Payment of Fees & Charges"
+  },
+  {
+    "Id": 62,
+    "Koda": "FCOL",
+    "Definicija": "Plačilo provizije za kartično transakcijo med dvema strankama",
+    "Klasifikacija": "Provizija",
+    "Classification": "FeeCollection"
+  },
+  {
+    "Id": 63,
+    "Koda": "FERB",
+    "Definicija": "Plačilo za storitve povezane s trajektnim prevozom",
+    "Klasifikacija": "Ladijski prevoz",
+    "Classification": "Ferry"
+  },
+  {
+    "Id": 64,
+    "Koda": "FWLV",
+    "Definicija": "Plačilo dajatev za tuje delavce",
+    "Klasifikacija": "Dajatve za tuje delavce",
+    "Classification": "Foreign Worker Levy"
+  },
+  {
+    "Id": 65,
+    "Koda": "FREX",
+    "Definicija": "Plačilo storitev deviznega poslovanja (menjava valut)",
+    "Klasifikacija": "Devizno poslovanje",
+    "Classification": "ForeignExchange"
+  },
+  {
+    "Id": 66,
+    "Koda": "GASB",
+    "Definicija": "Plačilo računa za plin",
+    "Klasifikacija": "Račun za plin",
+    "Classification": "GasBill"
+  },
+  {
+    "Id": 67,
+    "Koda": "GDDS",
+    "Definicija": "Plačilo nakupa ali prodaje blaga",
+    "Klasifikacija": "Kupoprodaja blaga",
+    "Classification": "PurchaseSaleOfGoods"
+  },
+  {
+    "Id": 68,
+    "Koda": "GDSV",
+    "Definicija": "Plačilo nakupa ali prodaje blaga in storitev",
+    "Klasifikacija": "Kupoprodaja blaga in storitev",
+    "Classification": "PurchaseSaleOfGoodsAndServices"
+  },
+  {
+    "Id": 69,
+    "Koda": "GFRP",
+    "Definicija": "Plačilo za nadomestilo nezaposlenim zaradi insolventnih postopkov (neizplačane plače za zadnje 3 mesece pred datumom prenehanja delovnega razmerja, neizplačanih nadomestil plač za plačane odsotnosti z dela za zadnje 3 mesece pred datumom prenehanja delovnega razmerja, neizplačanih nadomestil plač za čas neizrabljenega letnega dopusta do katerega je delavec upravičen v tekočem koledarskem letu, odpravnin v višini in pod pogoji, kot jih za presežne delavce določajo predpisi, ki urejajo delovna razmerja)",
+    "Klasifikacija": "Plačila iz naslova insolventnosti",
+    "Classification": "GuaranteeFundRightsPayment"
+  },
+  {
+    "Id": 70,
+    "Koda": "GOVI",
+    "Definicija": "Plačilo državnega zavarovanja",
+    "Klasifikacija": "Državno zavarovanje",
+    "Classification": "GovernmentInsurance"
+  },
+  {
+    "Id": 71,
+    "Koda": "GOVT",
+    "Definicija": "Plačilo državnemu organu ali s strani državnega organa (nakazila po vojnih zakonih, prejemki vojnih in mirovnih vojaških invalidov, sredstva za odpravo posledic nesreč, refundacija KID - kratkoročne invalidske dajatve, humanitarna pomoč, kazni, penali, globe, sodne in druge takse, plačilo dohodnine)",
+    "Klasifikacija": "Plačilo v dobro / breme državnega organa",
+    "Classification": "GovernmentPayment"
+  },
+  {
+    "Id": 72,
+    "Koda": "GSCB",
+    "Definicija": "Nakup ali prodaja blaga ter storitev z gotovino (tudi polog izkupička)",
+    "Klasifikacija": "Kupoprodaja blaga in storitev z gotovino",
+    "Classification": "PurchaseSaleOfGoodsAndServicesWithCashBack"
+  },
+  {
+    "Id": 73,
+    "Koda": "GSTX",
+    "Definicija": "Plačilo davka na blago in storitve",
+    "Klasifikacija": "Davek na blago in storitve",
+    "Classification": "Goods & Services Tax"
+  },
+  {
+    "Id": 74,
+    "Koda": "GVEA",
+    "Definicija": "Plačilo za avstrijske vladne uslužbence kategorije A",
+    "Klasifikacija": "Avstrijski vladni uslužbenci kategorije A",
+    "Classification": "Austrian Government Employees Category A"
+  },
+  {
+    "Id": 75,
+    "Koda": "GVEB",
+    "Definicija": "Plačilo za avstrijske vladne uslužbence kategorije B",
+    "Klasifikacija": "Avstrijski vladni uslužbenci kategorije B",
+    "Classification": "Austrian Government Employees Category B"
+  },
+  {
+    "Id": 76,
+    "Koda": "GVEC",
+    "Definicija": "Plačilo za avstrijske vladne uslužbence kategorije C",
+    "Klasifikacija": "Avstrijski vladni uslužbenci kategorije C",
+    "Classification": "Austrian Government Employees Category C"
+  },
+  {
+    "Id": 77,
+    "Koda": "GVED",
+    "Definicija": "Plačilo za avstrijske vladne uslužbence kategorije D",
+    "Klasifikacija": "Avstrijski vladni uslužbenci kategorije D",
+    "Classification": "Austrian Government Employees Category D"
+  },
+  {
+    "Id": 78,
+    "Koda": "GWLT",
+    "Definicija": "Plačilo za žrtve vojnega nasilja in vojne invalide",
+    "Klasifikacija": "Nakazila po vojnih zakonih",
+    "Classification": "GovermentWarLegislationTransfer"
+  },
+  {
+    "Id": 79,
+    "Koda": "HEDG",
+    "Definicija": "Plačilo storitev poslovanja v zvezi z zaščito pred tveganji.",
+    "Klasifikacija": "Zaščita pred tveganji",
+    "Classification": "Hedging"
+  },
+  {
+    "Id": 80,
+    "Koda": "HLRP",
+    "Definicija": "Plačilo stanovanjskega posojila",
+    "Klasifikacija": "Plačilo stanovanjskega posojila",
+    "Classification": "HousingLoanRepayment"
+  },
+  {
+    "Id": 81,
+    "Koda": "HLTC",
+    "Definicija": "Plačilo zdravstvene oskrbe na domu",
+    "Klasifikacija": "Zdravstvena oskrba na domu",
+    "Classification": "HomeHealthCare"
+  },
+  {
+    "Id": 82,
+    "Koda": "HLTI",
+    "Definicija": "Plačilo zdravstvenega zavarovanja",
+    "Klasifikacija": "Zdravstveno zavarovanje",
+    "Classification": "HealthInsurance"
+  },
+  {
+    "Id": 83,
+    "Koda": "HSPC",
+    "Definicija": "Plačilo oskrbe v bolnišnici",
+    "Klasifikacija": "Bolnišnična oskrba",
+    "Classification": "HospitalCare"
+  },
+  {
+    "Id": 84,
+    "Koda": "HSTX",
+    "Definicija": "Plačilo stanovanjskega davka",
+    "Klasifikacija": "Stanovanjski davek",
+    "Classification": "HousingTax"
+  },
+  {
+    "Id": 85,
+    "Koda": "ICCP",
+    "Definicija": "Nepreklicno plačilo s kreditno kartico",
+    "Klasifikacija": "Nepreklicno plačilo s kreditno kartico",
+    "Classification": "IrrevocableCreditCardPayment"
+  },
+  {
+    "Id": 86,
+    "Koda": "ICRF",
+    "Definicija": "Plačilo oskrbe prve / nujne pomoči",
+    "Klasifikacija": "Prva / nujna pomoč",
+    "Classification": "IntermediateCareFacility"
+  },
+  {
+    "Id": 87,
+    "Koda": "IDCP",
+    "Definicija": "Nepreklicno plačilo z debetno kartico",
+    "Klasifikacija": "Nepreklicno plačilo z debetno kartico",
+    "Classification": "IrrevocableDebitCardPayment"
+  },
+  {
+    "Id": 88,
+    "Koda": "IHRP",
+    "Definicija": "Plačilo po dogovoru o obročnih / najemnih nakupih",
+    "Klasifikacija": "Plačilo obroka najemnine / nakupa",
+    "Classification": "InstalmentHirePurchaseAgreement"
+  },
+  {
+    "Id": 89,
+    "Koda": "INPC",
+    "Definicija": "Plačilo premije za avtomobilsko zavarovanje",
+    "Klasifikacija": "Premija avtomobilskega zavarovanja",
+    "Classification": "InsurancePremiumCar"
+  },
+  {
+    "Id": 90,
+    "Koda": "INSM",
+    "Definicija": "Plačilo obroka (razni nakupi na obroke)",
+    "Klasifikacija": "Plačilo obroka",
+    "Classification": "Installment"
+  },
+  {
+    "Id": 91,
+    "Koda": "INSU",
+    "Definicija": "Plačilo zavarovalne premije",
+    "Klasifikacija": "Zavarovalna premija",
+    "Classification": "InsurancePremium"
+  },
+  {
+    "Id": 92,
+    "Koda": "INTC",
+    "Definicija": "Plačilo znotraj družbe, kar pomeni plačilo med dvema podjetjema, ki pripadata isti skupini",
+    "Klasifikacija": "Interno plačilo",
+    "Classification": "IntraCompanyPayment"
+  },
+  {
+    "Id": 93,
+    "Koda": "INTE",
+    "Definicija": "Plačilo obresti",
+    "Klasifikacija": "Obresti",
+    "Classification": "Interest"
+  },
+  {
+    "Id": 94,
+    "Koda": "INTX",
+    "Definicija": "Plačilo davka na dobiček (davek od dohodka pravne osebe)",
+    "Klasifikacija": "Davek na dobiček",
+    "Classification": "IncomeTax"
+  },
+  {
+    "Id": 95,
+    "Koda": "INVS",
+    "Definicija": "Vplačilo v vzajemne sklade, naložbene produkte ter obveznice in delnice",
+    "Klasifikacija": "Naložbe & Vrednostni papirji",
+    "Classification": "Investment & Securities"
+  },
+  {
+    "Id": 96,
+    "Koda": "IVPT",
+    "Definicija": "Plačilo računov",
+    "Klasifikacija": "Plačilo računa",
+    "Classification": "Invoice Payment"
+  },
+  {
+    "Id": 97,
+    "Koda": "LBRI",
+    "Definicija": "Plačilo delovnega zavarovanja, prispevkov za socialno varnost (zdravstveno, pokojninsko)",
+    "Klasifikacija": "Delovno zavarovanje",
+    "Classification": "LaborInsurance"
+  },
+  {
+    "Id": 98,
+    "Koda": "LICF",
+    "Definicija": "Plačilo licenčne provizije / licenčnine",
+    "Klasifikacija": "Licenčna provizija / licenčnina",
+    "Classification": "LicenseFee"
+  },
+  {
+    "Id": 99,
+    "Koda": "LIFI",
+    "Definicija": "Plačilo življenjskega zavarovanja",
+    "Klasifikacija": "Življenjsko zavarovanje",
+    "Classification": "LifeInsurance"
+  },
+  {
+    "Id": 100,
+    "Koda": "LIMA",
+    "Definicija": "Banka je izvedla prenos sredstev za podporo upravljanju bilance, poolingu ali sweepingu.",
+    "Klasifikacija": "Upravljanje likvidnosti",
+    "Classification": "LiquidityManagement"
+  },
+  {
+    "Id": 101,
+    "Koda": "LOAN",
+    "Definicija": "Nakazilo posojila posojilojemalcu",
+    "Klasifikacija": "Posojilo",
+    "Classification": "Loan"
+  },
+  {
+    "Id": 102,
+    "Koda": "LOAR",
+    "Definicija": "Plačilo posojila (obročno odplačevanje kredita)",
+    "Klasifikacija": "Odplačilo posojila",
+    "Classification": "LoanRepayment"
+  },
+  {
+    "Id": 103,
+    "Koda": "LTCF",
+    "Definicija": "Plačilo daljše zdravstvene oskrbe",
+    "Klasifikacija": "Dolgotrajna zdravstvena oskrba",
+    "Classification": "LongTermCareFacility"
+  },
+  {
+    "Id": 104,
+    "Koda": "MDCS",
+    "Definicija": "Plačilo za zdravstvene storitve",
+    "Klasifikacija": "Zdravstvene storitve",
+    "Classification": "MedicalServices"
+  },
+  {
+    "Id": 105,
+    "Koda": "MSVC",
+    "Definicija": "Plačilo za večnamenske storitve (nadomestilo nerezidentom)",
+    "Klasifikacija": "Večnamenske storitve",
+    "Classification": "MultipleServiceTypes"
+  },
+  {
+    "Id": 106,
+    "Koda": "MTUP",
+    "Definicija": "Plačilo storitve, ki omogoča takojšnjo rezervacijo sredstev na kartičnem računu, kateri sledi polnitev rezerviranega zneska na mobi račun",
+    "Klasifikacija": "Polnjenje mobi računa",
+    "Classification": "Mobile Top Up"
+  },
+  {
+    "Id": 107,
+    "Koda": "NETT",
+    "Definicija": "Transakcija se nanaša na operacijo neto izravnave (pobot).",
+    "Klasifikacija": "Neto izravnava",
+    "Classification": "Netting"
+  },
+  {
+    "Id": 108,
+    "Koda": "NITX",
+    "Definicija": "Plačilo davka na čisti dobiček",
+    "Klasifikacija": "Davek na čisti dobiček",
+    "Classification": "NetIncomeTax"
+  },
+  {
+    "Id": 109,
+    "Koda": "NOWS",
+    "Definicija": "Plačilo storitev, ki niso opredeljene drugod",
+    "Klasifikacija": "Ni opredeljeno drugod.",
+    "Classification": "NotOtherwiseSpecified"
+  },
+  {
+    "Id": 110,
+    "Koda": "NWCH",
+    "Definicija": "Plačilo omrežnine",
+    "Klasifikacija": "Omrežnina",
+    "Classification": "NetworkCharge"
+  },
+  {
+    "Id": 111,
+    "Koda": "NWCM",
+    "Definicija": "Plačilo mrežne povezave (internet)",
+    "Klasifikacija": "Plačilo komunikacijskega omrežja",
+    "Classification": "NetworkCommunication"
+  },
+  {
+    "Id": 112,
+    "Koda": "OFEE",
+    "Definicija": "Plačilo otvoritvene provizije",
+    "Klasifikacija": "Otvoritvena provizija",
+    "Classification": "OpeningFee"
+  },
+  {
+    "Id": 113,
+    "Koda": "OTHR",
+    "Definicija": "Drug namen plačila",
+    "Klasifikacija": "Drugo",
+    "Classification": "Other"
+  },
+  {
+    "Id": 114,
+    "Koda": "OTLC",
+    "Definicija": "Plačilo drugih računov v zvezi s telekomunikacijami",
+    "Klasifikacija": "Drugi računi - telekomunikacije",
+    "Classification": "OtherTelecomRelatedBill"
+  },
+  {
+    "Id": 115,
+    "Koda": "PADD",
+    "Definicija": "Vnaprej odobren nalog za obremenitev (npr. direktne obremenitve SEPA)",
+    "Klasifikacija": "Vnaprej odobrena obremenitev",
+    "Classification": "Preauthorized debit"
+  },
+  {
+    "Id": 116,
+    "Koda": "PAYR",
+    "Definicija": "Izplačilo po plačilni listi (plače, nakazila nadomestil, javna dela)",
+    "Klasifikacija": "Plačilna lista",
+    "Classification": "Payroll"
+  },
+  {
+    "Id": 117,
+    "Koda": "PENO",
+    "Definicija": "Plačilo po vseh sklepih o izvršbah, razen sodnih za preživnine",
+    "Klasifikacija": "Plačilo po vseh sklepih o izvršbah, razen sodnih za preživnine",
+    "Classification": "PaymentBasedOnEnforcementOrder"
+  },
+  {
+    "Id": 118,
+    "Koda": "PENS",
+    "Definicija": "Izplačilo pokojnin",
+    "Klasifikacija": "Pokojnina",
+    "Classification": "PensionPayment"
+  },
+  {
+    "Id": 119,
+    "Koda": "PHON",
+    "Definicija": "Plačilo telefonskega računa",
+    "Klasifikacija": "Račun za telefon",
+    "Classification": "TelephoneBill"
+  },
+  {
+    "Id": 120,
+    "Koda": "POPE",
+    "Definicija": "Plačilo, povezano s prodajnim mestom",
+    "Klasifikacija": "Vnos / vpis prodajnega mesta",
+    "Classification": "Point of Purchase Entry"
+  },
+  {
+    "Id": 121,
+    "Koda": "PPTI",
+    "Definicija": "Plačilo zavarovanja lastnine",
+    "Klasifikacija": "Zavarovanje lastnine",
+    "Classification": "PropertyInsurance"
+  },
+  {
+    "Id": 122,
+    "Koda": "PRCP",
+    "Definicija": "Plačilo izdatkov (potni stroški, malica), ki se nanašajo na izplačilo pri plači",
+    "Klasifikacija": "Plačilo izdatkov",
+    "Classification": "PricePayment"
+  },
+  {
+    "Id": 123,
+    "Koda": "PRME",
+    "Definicija": "plačilo se nanaša na poslovanje s plemenitimi kovinami",
+    "Klasifikacija": "Plemenite kovine",
+    "Classification": "PreciousMetal"
+  },
+  {
+    "Id": 124,
+    "Koda": "PTSP",
+    "Definicija": "Plačilo se nanaša na specifikacije plačilnih pogojev",
+    "Klasifikacija": "Plačilni pogoji",
+    "Classification": "PaymentTerms"
+  },
+  {
+    "Id": 125,
+    "Koda": "PTXP",
+    "Definicija": "Plačilo davka na premoženje",
+    "Klasifikacija": "Davek na premoženje",
+    "Classification": "Property Tax"
+  },
+  {
+    "Id": 126,
+    "Koda": "RCKE",
+    "Definicija": "Plačilo v povezavi z unovčitvijo čeka",
+    "Klasifikacija": "Plačilo za ponovno unovčitev čeka",
+    "Classification": "Re-presented Check Entry"
+  },
+  {
+    "Id": 127,
+    "Koda": "RCPT",
+    "Definicija": "Plačilo za izdajo potrdila",
+    "Klasifikacija": "Plačilo za izdajo potrdila",
+    "Classification": "ReceiptPayment"
+  },
+  {
+    "Id": 128,
+    "Koda": "RDTX",
+    "Definicija": "Plačilo dajatve za uporabo vozil v cestnem prometu",
+    "Klasifikacija": "Dajatev v cestnem prometu",
+    "Classification": "Road Tax"
+  },
+  {
+    "Id": 129,
+    "Koda": "REBT",
+    "Definicija": "Vračilo rabata",
+    "Klasifikacija": "Vračilo rabata",
+    "Classification": "Rebate"
+  },
+  {
+    "Id": 130,
+    "Koda": "REFU",
+    "Definicija": "Vračilo denarnih sredstev",
+    "Klasifikacija": "Vračilo denarnih sredstev",
+    "Classification": "Refund"
+  },
+  {
+    "Id": 131,
+    "Koda": "RENT",
+    "Definicija": "Plačilo najemnine",
+    "Klasifikacija": "Najemnina",
+    "Classification": "Rent"
+  },
+  {
+    "Id": 132,
+    "Koda": "RHBS",
+    "Definicija": "Plačilo za delo med rehabilitacijo - podpora med rehabilitacijo",
+    "Klasifikacija": "Rehabilitacija invalidov",
+    "Classification": "RehabilitationSupport"
+  },
+  {
+    "Id": 133,
+    "Koda": "RINP",
+    "Definicija": "Plačilo ponavljajočih obrokov v rednih intervalih",
+    "Klasifikacija": "Obročna plačila",
+    "Classification": "RecurringInstallmentPayment"
+  },
+  {
+    "Id": 134,
+    "Koda": "RLWY",
+    "Definicija": "Plačilo za storitve povezane z železniškim transportom",
+    "Klasifikacija": "Železniški prevoz",
+    "Classification": "Railway"
+  },
+  {
+    "Id": 135,
+    "Koda": "ROYA",
+    "Definicija": "Plačilo tantiem (avtorski dohodek)",
+    "Klasifikacija": "Plačilo iz naslova avtorskih pravic",
+    "Classification": "Royalties"
+  },
+  {
+    "Id": 136,
+    "Koda": "SALA",
+    "Definicija": "Izplačilo plač, porodniške",
+    "Klasifikacija": "Plača",
+    "Classification": "SalaryPayment"
+  },
+  {
+    "Id": 137,
+    "Koda": "SAVG",
+    "Definicija": "Prenos na varčevalni / pokojninski račun (rentno varčevanje, varčevanje v shemi NSVS, vplačilo v sklade)",
+    "Klasifikacija": "Varčevanje",
+    "Classification": "Savings"
+  },
+  {
+    "Id": 138,
+    "Koda": "SCVE",
+    "Definicija": "plačilo nakupa ali prodaje storitev",
+    "Klasifikacija": "Kupoprodaja storitev",
+    "Classification": "PurchaseSaleOfServices"
+  },
+  {
+    "Id": 139,
+    "Koda": "SECU",
+    "Definicija": "Plačilo vrednostnih papirjev (menic, obveznic, delnic)",
+    "Klasifikacija": "Vrednostni papirji",
+    "Classification": "Securities"
+  },
+  {
+    "Id": 140,
+    "Koda": "SEPI",
+    "Definicija": "Plačilo za nakup vrednostnih papirjev v primeru, ko sovpadata skrbniška banka in banka, ki vodi transakcijski račun",
+    "Klasifikacija": "Interni nakup vrednostnih papirjev",
+    "Classification": "SecuritiesPurchase In-house"
+  },
+  {
+    "Id": 141,
+    "Koda": "SSBE",
+    "Definicija": "Plačilo države za pomoč posameznikom zaradi izgube ali zmanjšanja delovne sposobnosti",
+    "Klasifikacija": "Socialna podpora",
+    "Classification": "SocialSecurityBenefit"
+  },
+  {
+    "Id": 142,
+    "Koda": "STDY",
+    "Definicija": "Plačilo študija / šolnine (štipendija, študijsko gradivo, izobraževanje, seminarji, nagrade za trajnostni razvoj)",
+    "Klasifikacija": "Študij",
+    "Classification": "Study"
+  },
+  {
+    "Id": 143,
+    "Koda": "SUBS",
+    "Definicija": "Plačilo storitev informativne in razvedrilne narave v tiskani ali elektronski obliki (npr. naročnina na časopis)",
+    "Klasifikacija": "Naročnina",
+    "Classification": "Subscription"
+  },
+  {
+    "Id": 144,
+    "Koda": "SUPP",
+    "Definicija": "Plačilo dobaviteljem",
+    "Klasifikacija": "Plačilo dobaviteljem",
+    "Classification": "SupplierPayment"
+  },
+  {
+    "Id": 145,
+    "Koda": "TAXR",
+    "Definicija": "Vračilo plačanega davka ali davčne obveznosti in preveč plačane dohodnine",
+    "Klasifikacija": "Vračilo davka",
+    "Classification": "TaxRefund"
+  },
+  {
+    "Id": 146,
+    "Koda": "TAXS",
+    "Definicija": "Plačilo davka na dohodek iz kapitala (obresti, dividende, vrednostni papirji), dohodnine (iz delovnega in drugega pogodbenega razmerja), dohodnine iz osnovne kmetijske in gozdarske dejavnosti, iz dajanja premoženja v najem, od dohodka iz dejavnosti pri s.p.",
+    "Klasifikacija": "Plačilo davkov",
+    "Classification": "TaxPayment"
+  },
+  {
+    "Id": 147,
+    "Koda": "TBIL",
+    "Definicija": "Plačilo telekomunikacijskih storitev",
+    "Klasifikacija": "Račun za telekomunikacije",
+    "Classification": "Telecommunications Bill"
+  },
+  {
+    "Id": 148,
+    "Koda": "TCSC",
+    "Definicija": "Plačilo storitev mestnega sveta",
+    "Klasifikacija": "Stroški storitev mestnega sveta",
+    "Classification": "Town Council Service Charges"
+  },
+  {
+    "Id": 149,
+    "Koda": "TELI",
+    "Definicija": "Plačilo nakupa izvedenega prek telefona",
+    "Klasifikacija": "Telefonsko izvedena transakcija",
+    "Classification": "Telephone-Initiated Transaction"
+  },
+  {
+    "Id": 150,
+    "Koda": "TRAD",
+    "Definicija": "Transakcija se nanaša na trgovinske storitve.",
+    "Klasifikacija": "Trgovinske storitve",
+    "Classification": "TradeServices"
+  },
+  {
+    "Id": 151,
+    "Koda": "TREA",
+    "Definicija": "Plačilo storitev zakladniškega poslovanja",
+    "Klasifikacija": "Zakladniško plačilo",
+    "Classification": "TreasuryPayment"
+  },
+  {
+    "Id": 152,
+    "Koda": "TRFD",
+    "Definicija": "Plačilo v / iz skrbniški / jamstveni sklad",
+    "Klasifikacija": "Skrbniški sklad",
+    "Classification": "TrustFund"
+  },
+  {
+    "Id": 153,
+    "Koda": "TRPT",
+    "Definicija": "Polnitev predplačniških kartic in ostalih medijev elektronskega cestninjenja za namene transporta",
+    "Klasifikacija": "Plačilo cestnine",
+    "Classification": "RoadPricing"
+  },
+  {
+    "Id": 154,
+    "Koda": "UBIL",
+    "Definicija": "Plačilo skupnemu dobavitelju plina, vode in / ali elektrike",
+    "Klasifikacija": "Komunala in elektrika",
+    "Classification": "Utilities"
+  },
+  {
+    "Id": 155,
+    "Koda": "VATX",
+    "Definicija": "Plačilo davka na dodano vrednost",
+    "Klasifikacija": "Plačilo davka na dodano vrednost",
+    "Classification": "ValueAddedTaxPayment"
+  },
+  {
+    "Id": 156,
+    "Koda": "VIEW",
+    "Definicija": "Plačilo za oskrbo vida",
+    "Klasifikacija": "Oskrba vida",
+    "Classification": "VisionCare"
+  },
+  {
+    "Id": 157,
+    "Koda": "WEBI",
+    "Definicija": "Plačilo nakupa izvedenega prek svetovnega spleta (internet)",
+    "Klasifikacija": "Internetno izvedena transakcija",
+    "Classification": "Internet-Initiated Transaction"
+  },
+  {
+    "Id": 158,
+    "Koda": "WHLD",
+    "Definicija": "Davčni odtegljaj od dohodkov nerezidentov (WHT)",
+    "Klasifikacija": "Davek po odbitku",
+    "Classification": "WithHolding"
+  },
+  {
+    "Id": 159,
+    "Koda": "WTER",
+    "Definicija": "Plačilo vode, kanalščine, priključnine in ostalih storitev povezanih z oskrbo z vodo",
+    "Klasifikacija": "Račun za vodo / vodarina",
+    "Classification": "WaterBill"
+  }
+]

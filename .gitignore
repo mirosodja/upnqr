@@ -45,6 +45,4 @@ testem.log
 Thumbs.db
 
 # Miro
-/src/assets/data
-/upn_services/phpqrcode
 /readme
