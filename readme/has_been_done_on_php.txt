@@ -1,4 +1,0 @@
-=> changes routes.ini <= already uploaded
-=> in PdfController.php in function prepareString4Qrcode:
-    zamenjal na koncu "\n" s chr(10)
-=> in PdfController.php, line 329 in 330: popravil 1 na 17

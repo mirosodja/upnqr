@@ -1,2 +1,0 @@
-=> table.component
-	- insertRecord popravi na writeRecord in potem kliči samo to funkcijo
