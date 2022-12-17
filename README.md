@@ -25,12 +25,18 @@ Pdf files with the corresponding code are generated on the server in python with
 Enabling Apache wsgi module and add confuguration file for backend with alias:
 ```console
 sudo a2enmod wsgi
+```
+```console
 sudo nano /etc/apache2/conf-available/upnqr.conf
 ```
 Copy content of ./backend/conf+service/upnqr.conf into /etc/apache2/conf-available/upnqr.conf
 ```console
 sudo ls -
+```
+```console
 sudo nano /etc/apache2/conf-available/upnqr.conf
+```
+```console
 sudo ln -s /etc/apache2/conf-available/upnqr.conf /etc/apache2/conf-enabled/upnqr.conf
 ```
 Restart apache:
@@ -40,10 +46,20 @@ sudo systemctl restart apache2.service
 Preparing python virtual env:
 ```console
 cd /home/user/CRUD/upnqr_services/
+```
+```console
 python -m venv env
+```
+```console
 source env/bin/activate
+```
+```console
 python -m pip install -r requirements.txt
+```
+```console
 pip install gunicorn
+```
+```console
 deactivate
 ```
 Preparing gunicorn service:
@@ -53,6 +69,8 @@ sudo nano /etc/systemd/system/upnqr.service
 Then copy content of ./backend/conf+service/upnqr.service in /etc/systemd/system/upnqr.service, start and enable service:
 ```console
 sudo systemctl start upnqr
+```
+```console
 sudo systemctl enable upnqr
 ```
 
