@@ -1,5 +1,5 @@
 # Program za pripravo Upn QR nalogov
-[Univerzalni plačilni nalogi - UPN QR program](https://potep.in/upnqr/) lahko brezplačno uporabljate na anvedeni povezavi. Generira pdf datoteko za tiskanje standardnih A4 Upn QR nalogov na laserskem tiskalniku oziroma zip datoteko z Upn QR nalogi v pdf datotekah in je namenjen pošiljanju preko elektronske pošte (glej tudi [pomoč](https://potep.in/upnqr/help) na domači strani programa).
+[Univerzalni plačilni nalogi - UPN QR program](https://potep.in/upnqr/) lahko brezplačno uporabljate na navedeni povezavi. Generira pdf datoteko za tiskanje standardnih A4 Upn QR nalogov na laserskem tiskalniku oziroma zip datoteko z Upn QR nalogi v pdf datotekah in je namenjen pošiljanju preko elektronske pošte (glej tudi [pomoč](https://potep.in/upnqr/help) na domači strani programa).
 
 Več o uporabljenih programih oziroma modulih spodaj, mogoče samo še to v slovenščini, da je del programa, ki teče v brskalniku sprogramiran v Angular - ju, na serverju, kjer se pripravijo pdf oziroma zip datoteke pa v pythonu. Vsi podatki, ki so potrebni za generiranje pdf datotek so v IndexDB na vašem računalniku. Povedati je treba še to, da je bilo preizkušenih več paketov za generiranje QR code, vendar je samo Segno PyPI paket uspel zadostiti zahtevi, ki je za [UPN QR - Univerzalne plačilne naloge](https://upn-qr.si/) zapisana v [Priročniku za programerje](https://upn-qr.si/uploads/files/NavodilaZaProgramerjeUPNQR.pdf) za kodno tabelo in ta je ISO 8859-2 (Latin 2). 
 
@@ -20,3 +20,43 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # About python backend
 Pdf files with the corresponding code are generated on the server in python with the [Segno PyPI package](https://pypi.org/project/segno/). The code is in the "backend" folder, it also contains the "conf+service" folder, which contains files for configuring the Apache server to run python in wsgi mode and running gunicorn as a service. Segno PyPI package generates QR code which pass the test in program [PreveriUPNQR22](https://upn-qr.si/sl/preveriupnqr). Fonts for generates pdf file for printing is [FreeMono.ttf](https://www.gnu.org/software/freefont/index.html).
+
+## Preparing apache, python
+Enabling Apache wsgi module and add confuguration file for backend with alias:
+```console
+user@server:~$sudo a2enmod wsgi
+user@server:~$sudo nano /etc/apache2/conf-available/upnqr.conf
+```
+Copy content of ./backend/conf+service/upnqr.conf into /etc/apache2/conf-available/upnqr.conf
+```console
+user@server:~$sudo ls -
+user@server:~$sudo nano /etc/apache2/conf-available/upnqr.conf
+user@server:~$sudo ln -s /etc/apache2/conf-available/upnqr.conf /etc/apache2/conf-enabled/upnqr.conf
+```
+Restart apache:
+```console
+user@server:~$sudo systemctl restart apache2.service
+```
+Preparing python virtual env:
+```console
+user@server:~$cd /home/user/CRUD/upnqr_services/
+user@server:~$python -m venv env
+user@server:~$source env/bin/activate
+user@server:~$python -m pip install -r requirements.txt
+user@server:~$pip install gunicorn
+user@server:~$deactivate
+```
+Preparing gunicorn service:
+```console
+user@server:~$sudo nano /etc/systemd/system/upnqr.service
+```
+Then copy content of ./backend/conf+service/upnqr.service in /etc/systemd/system/upnqr.service, start and enable service:
+```console
+user@server:~$sudo systemctl start upnqr
+user@server:~$sudo systemctl enable upnqr
+```
+
+
+
+
+

@@ -3,3 +3,4 @@ Flask_Cors==3.0.10
 fpdf==1.7.2
 fpdf2==2.4.6
 segno==1.4.0
+markupsafe==2.0.1
