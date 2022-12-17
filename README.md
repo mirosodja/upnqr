@@ -24,36 +24,36 @@ Pdf files with the corresponding code are generated on the server in python with
 ## Preparing apache, python
 Enabling Apache wsgi module and add confuguration file for backend with alias:
 ```console
-user@server:~$sudo a2enmod wsgi
-user@server:~$sudo nano /etc/apache2/conf-available/upnqr.conf
+sudo a2enmod wsgi
+sudo nano /etc/apache2/conf-available/upnqr.conf
 ```
 Copy content of ./backend/conf+service/upnqr.conf into /etc/apache2/conf-available/upnqr.conf
 ```console
-user@server:~$sudo ls -
-user@server:~$sudo nano /etc/apache2/conf-available/upnqr.conf
-user@server:~$sudo ln -s /etc/apache2/conf-available/upnqr.conf /etc/apache2/conf-enabled/upnqr.conf
+sudo ls -
+sudo nano /etc/apache2/conf-available/upnqr.conf
+sudo ln -s /etc/apache2/conf-available/upnqr.conf /etc/apache2/conf-enabled/upnqr.conf
 ```
 Restart apache:
 ```console
-user@server:~$sudo systemctl restart apache2.service
+sudo systemctl restart apache2.service
 ```
 Preparing python virtual env:
 ```console
-user@server:~$cd /home/user/CRUD/upnqr_services/
-user@server:~$python -m venv env
-user@server:~$source env/bin/activate
-user@server:~$python -m pip install -r requirements.txt
-user@server:~$pip install gunicorn
-user@server:~$deactivate
+cd /home/user/CRUD/upnqr_services/
+python -m venv env
+source env/bin/activate
+python -m pip install -r requirements.txt
+pip install gunicorn
+deactivate
 ```
 Preparing gunicorn service:
 ```console
-user@server:~$sudo nano /etc/systemd/system/upnqr.service
+sudo nano /etc/systemd/system/upnqr.service
 ```
 Then copy content of ./backend/conf+service/upnqr.service in /etc/systemd/system/upnqr.service, start and enable service:
 ```console
-user@server:~$sudo systemctl start upnqr
-user@server:~$sudo systemctl enable upnqr
+sudo systemctl start upnqr
+sudo systemctl enable upnqr
 ```
 
 
