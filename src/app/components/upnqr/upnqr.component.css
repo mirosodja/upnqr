@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/* UPN QR */
+
+
+.upnQrScreen {
+  background-image: url("../../../assets/img/upnqrScreen.jpg");
+  /* ./assets/img/img/upnqrScreen.jpg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  top: 13mm;
+  height: 99mm;
+  width: 210mm;
+}
+
+.upnQrPredinPoUpn {
+  position: relative;
+  height: 12mm;
+}
+
+/* talon */
+
+.upnQrTalon {
+  font-family: "Myriad Pro", "Courier New", "Courier", "Lucida";
+  font-size: 10pt;
+  position: absolute;
+  left: 0mm;
+  top: 0mm;
+  width: 60mm;
+  height: 99mm;
+}
+
+.upnQrTalon>.imePlacnik {
+  position: absolute;
+  left: 4mm;
+  top: 6mm;
+  width: 52.5mm;
+  height: 13.5mm;
+  padding: 2px;
+}
+
+.upnQrTalon>.namen_rok_placila {
+  position: absolute;
+  left: 4mm;
+  top: 22.5mm;
+  width: 52.5mm;
+  height: 9mm;
+  padding: 2px;
+}
+
+.upnQrTalon>.znesek {
+  position: absolute;
+  left: 16.5mm;
+  top: 34.5mm;
+  width: 40mm;
+  height: 5mm;
+  padding: 2px;
+}
+
+/* IBAN IN REFERENCA PREJEMNIKA V DRUGI VRSTICI */
+
+.upnQrTalon>.prejemnik_IBAN {
+  position: absolute;
+  left: 4mm;
+  top: 42.5mm;
+  width: 52.5mm;
+  height: 13.5mm;
+  padding: 2px;
+}
+
+.upnQrTalon>.imePrejemnik {
+  position: absolute;
+  left: 4mm;
+  top: 59mm;
+  width: 52.5mm;
+  height: 13.5mm;
+  padding: 2px;
+}
+
+/* nalog */
+
+.upnQrNalog {
+  font-family: "Myriad Pro", "Courier New", "Courier", "Lucida";
+  font-size: 11pt;
+  position: absolute;
+  left: 60mm;
+  top: 0mm;
+  width: 150mm;
+  height: 99mm;
+}
+
+/* od tu dalje je potrebno prišteti 60mm do konca UPN QR */
+
+.upnQrNalog>.kodaQR {
+  position: absolute;
+  left: 3.5mm;
+  top: 6mm;
+  width: 40mm;
+  height: 39.5mm;
+  padding: 2px;
+}
+
+.upnQrNalog>.imePlacnik {
+  position: absolute;
+  line-height: 5mm;
+  left: 46.5mm;
+  top: 22mm;
+  width: 99.5mm;
+  height: 15mm;
+  padding: 2px;
+}
+
+.upnQrNalog>.znesek {
+  position: absolute;
+  left: 54.2mm;
+  top: 40.5mm;
+  width: 41.25mm;
+  height: 5mm;
+  padding: 2px;
+}
+
+.upnQrNalog>.koda_namena {
+  position: absolute;
+  left: 3.5mm;
+  top: 49mm;
+  width: 15mm;
+  height: 5mm;
+  padding: 2px;
+}
+
+.upnQrNalog>.namen_rok_placila {
+  position: absolute;
+  left: 20.5mm;
+  top: 49mm;
+  width: 93.75mm;
+  height: 5mm;
+  padding: 2px;
+}
+
+.upnQrNalog>.prejemnik_IBAN {
+  position: absolute;
+  left: 3.5mm;
+  top: 58mm;
+  width: 127.5mm;
+  height: 5mm;
+  padding: 2px;
+}
+
+/* to polje je na nalogu razdeljeno na dve polji  */
+
+.upnQrNalog>.prejemnik_referenca {
+  position: absolute;
+  left: 3.5mm;
+  top: 66mm;
+  width: 99.5mm;
+  height: 5mm;
+  padding: 2px;
+}
+
+.upnQrNalog>.imePrejemnik {
+  position: absolute;
+  line-height: 5mm;
+  left: 3.5mm;
+  top: 74mm;
+  width: 99.5mm;
+  height: 15mm;
+  padding: 2px;
+}
