@@ -29,13 +29,12 @@ sudo a2enmod wsgi
 ```console
 sudo nano /etc/apache2/conf-available/upnqr.conf
 ```
-Copy content of ./backend/conf+service/upnqr.conf into /etc/apache2/conf-available/upnqr.conf
-```console
-sudo ls -
-```
+Copy content of ./backend/conf+service/upnqr.conf into /etc/apache2/conf-available/upnqr.conf with nano editor.
 ```console
 sudo nano /etc/apache2/conf-available/upnqr.conf
+Ctrl+V (to paste content of upnqr.conf)
 ```
+Create a symbolic link to configure the Apache web server.
 ```console
 sudo ln -s /etc/apache2/conf-available/upnqr.conf /etc/apache2/conf-enabled/upnqr.conf
 ```
